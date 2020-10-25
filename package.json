@@ -1,0 +1,28 @@
+{
+  "name": "pokidex",
+  "version": "1.0.0",
+  "description": "* Ethan Dillinger * Jalen Gilyard * Zane Stauffer * Brandon Barker",
+  "main": "index.js",
+  "scripts": {
+    "start": "node.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiiethan/Pokidex.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xiiethan/Pokidex/issues"
+  },
+  "homepage": "https://github.com/xiiethan/Pokidex#readme",
+  "engines": {
+    "node": "12.x"
+  },
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1"
+  }
+}
