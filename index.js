@@ -28,7 +28,7 @@ app.get('/test', (req, res) => {
     axios.get('https://pokeapi.co/api/v2/pokemon/')
     .then( response => {
         console.log(response.data)
-        
+        //Closes #39
     })
     res.render('test')
 })
