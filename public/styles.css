@@ -1,8 +1,8 @@
 /*Contact Styles*/
 @font-face {font-family: 'pkmn'; 
-src: url('PKMN RBYGSC.ttf')format('truetype');}
+src: url('fonts/PKMN RBYGSC.ttf')format('truetype');}
 body {
-	background: url(pokemon-sky.jpg) no-repeat;
+	background: url(images/pokemon-sky.jpg) no-repeat;
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;

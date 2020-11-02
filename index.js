@@ -19,8 +19,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/', function(req, res){
     res.render('home');
 });
-app.get('/pokidex', function(req, res){
-    res.render('pokidex');
+app.get('/pokedex', function(req, res){
+    res.render('pokedex');
 });
 app.get('/battle', function(req, res){
     res.render('battle');
