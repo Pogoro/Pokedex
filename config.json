@@ -4,7 +4,7 @@
         "port" : 465,
         "secure" : true,
         "user" : "pogoro.pokedex@gmail.com",
-        "pass" : "secret",
+        "pass" : "secrettest",
         "recipient" : {
             "address" : "privatenomad@gmail.com"
         }
