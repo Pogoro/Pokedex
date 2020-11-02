@@ -15,15 +15,15 @@ app.use(express.static("public"));
 //tell app to use Body parser
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//Body
+// Page routes
 app.get('/', function(req, res){
     res.render('home');
 });
 app.get('/pokidex', function(req, res){
     res.render('pokidex');
 });
-app.get('/map', function(req, res){
-    res.render('map');
+app.get('/battle', function(req, res){
+    res.render('battle');
 });
 app.get('/contact', function(req, res){
     res.render('contact');
