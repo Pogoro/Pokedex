@@ -1,5 +1,5 @@
-@font-face {font-family: 'pokemon_solid'; 
-src: url('Pokemon_Solid.ttf')format('truetype');}
+@font-face {font-family: 'poke'; 
+src: url('fonts/Pokemon_Solid.ttf')format('truetype');}
 
 body {
 	background: url(images/background.png) no-repeat;
@@ -16,6 +16,16 @@ body {
     font-size: 24px;
     font-family: "pokemon_solid", sans-serif;
     background: transparent;
+}
+
+.nav-link{
+    font-family: "poke", sans-serif;
+    text-decoration: none;
+    color: white;
+}
+
+.nav-link:hover{
+    color: #FFCB05;
 }
 
 #logo img { 

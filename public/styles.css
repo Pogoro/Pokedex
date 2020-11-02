@@ -25,17 +25,32 @@ body {
 	font-family: "pkmn", sans-serif;
 }
 .pfp{
+    margin-bottom: 20px;
 	border-radius: 50%;
 	width: 200px;
 	height: 200px;
 }
 .box h1{
+    white-space: nowrap;
+    text-align: center;
+    margin: 20px, auto;
 	font-family: "pkmn", sans-serif;
-	font-size: 30px;
+	font-size: 20px;
 	letter-spacing: 3px;
 	font-weight: 100;
 }
+#b-b{
+    width: 50%;
+    margin-left: -15px;
+}
+#z-s{
+    width: 50%;
+    margin-left: -5px;
+}
 .box h3{
+    white-space: nowrap;
+    text-align: center;
+    margin: 20px, auto;
 	font-size: 15px;
 	letter-spacing: 2px;
 	font-weight: 100;
