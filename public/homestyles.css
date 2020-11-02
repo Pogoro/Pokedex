@@ -1,10 +1,17 @@
 body {
-	background: url(pokemon_background.jpg) no-repeat;
+	background: url(background.png) no-repeat;
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-color: #F7F7F7;
+}
+
+#navigation {
+    position: relative;
+    top: 370px;
+    font-size: 24px;
+    
 }
 
 #logo img { 
@@ -19,4 +26,12 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+#mew img {
+    width: 25%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 150px;
 }
