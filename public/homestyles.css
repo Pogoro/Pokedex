@@ -1,0 +1,7 @@
+
+html {
+    background: url("pokemon_background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
