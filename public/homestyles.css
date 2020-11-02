@@ -1,3 +1,6 @@
+@font-face {font-family: 'pokemon_solid'; 
+src: url('Pokemon_Solid.ttf')format('truetype');}
+
 body {
 	background: url(background.png) no-repeat;
 	background-size: cover;
@@ -9,9 +12,10 @@ body {
 
 #navigation {
     position: relative;
-    top: 370px;
+    top: 430px;
     font-size: 24px;
-    
+    font-family: "pokemon_solid", sans-serif;
+    background: transparent;
 }
 
 #logo img { 
@@ -19,6 +23,8 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 30px;
+    padding-right: 40px;
 }
 
 #pogoro img {
@@ -26,6 +32,8 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 10px;
+    padding-left: 10px;
 }
 
 #mew img {
