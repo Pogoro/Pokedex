@@ -2,8 +2,8 @@
 var express = require('express');
 //reqiure body parser
 var bodyParser = require('body-parser');
-//Require node fetch
-var fetch = require('node-fetch');
+//Require Axios for API calls
+const axios = require('axios');
 //create express object, call express
 var app = express();
 //get port info
@@ -15,10 +15,23 @@ app.use(express.static("public"));
 //tell app to use Body parser
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
+
 // Page routes
 app.get('/', function(req, res){
+    
     res.render('home');
 });
+
+app.get('/test', (req, res) => {
+    const testPokemon = [];
+    axios.get('https://pokeapi.co/api/v2/pokemon/')
+    .then( response => {
+        console.log(response.data)
+        
+    })
+    res.render('test')
+})
 app.get('/pokedex', function(req, res){
     res.render('pokedex');
 });

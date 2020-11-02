@@ -21,6 +21,7 @@
     "node": "12.x"
   },
   "dependencies": {
+    "axios": "^0.21.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "node-fetch": "^2.6.1"
