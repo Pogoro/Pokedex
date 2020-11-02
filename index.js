@@ -36,6 +36,12 @@ app.get('/pokedex', function(req, res){
     res.render('pokedex');
 });
 app.get('/battle', function(req, res){
+    // get two pokemon at random
+    // check the rankings of them 
+    // compare which one is greater 
+
+    // on click of button or something reveal the winner
+
     res.render('battle');
 });
 app.get('/contact', function(req, res){
