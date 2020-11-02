@@ -7,28 +7,29 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="homestyles.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet" />
 
-    <title>World of Pokemon</title>
+    <title>Contact Us</title>
   </head>
-
   <body>
-    <nav class="nav justify-content-center">
-        <a class="nav-link" href="/">Home</a>
-        <a class="nav-link" href="/pokedex">Pokédex</a>
-        <a class="nav-link" href="/battle">Battle</a>
-        <a class="nav-link" href="/contact">Contact</a>
-    </nav>
-    
-    <div id="logo">
-        <img src="pokemon_logo.png" alt="Pokemon Logo">
-    </div>
-    <div id="pogoro">
-        <img src="pogoro_version.png" alt="Pogoro Version">
-    </div>
-    
+    <%- include('partials/header') %>
     <!-- Body -->
-
+    <div id='pagetitle'>
+		<h2> Meet the Team </h2>
+	</div>
+    <!--The contact cards-->
+    
+    <!--The email form-->
+    <form>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1"></label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Type message here..."></textarea>
+        </div>
+    </form>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

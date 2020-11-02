@@ -1,4 +1,6 @@
 /*Contact Styles*/
+@font-face {font-family: 'pkmn'; 
+src: url('PKMN RBYGSC.ttf')format('truetype');}
 body {
 	background: url(pokemon-sky.jpg) no-repeat;
 	background-size: cover;
@@ -20,7 +22,7 @@ body {
     margin-top: auto;
 	margin-bottom: 5%;
 	color: white;
-	font-family: sans-serif;
+	font-family: "pkmn", sans-serif;
 }
 .pfp{
 	border-radius: 50%;
@@ -28,7 +30,7 @@ body {
 	height: 200px;
 }
 .box h1{
-	font-family: "Bahnschrift Condensed", sans-serif;
+	font-family: "pkmn", sans-serif;
 	font-size: 30px;
 	letter-spacing: 3px;
 	font-weight: 100;
@@ -46,7 +48,7 @@ body {
 	text-align: center;
 	font-size: 300%;
 	font-weight: 300;
-	font-family: sans-serif;
+	font-family: "pkmn", sans-serif;
 	color: #D8DFD8;
 }
 .border{
