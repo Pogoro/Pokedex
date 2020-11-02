@@ -1,5 +1,5 @@
-@font-face {font-family: 'pokemon_solid'; 
-src: url('Pokemon_Solid.ttf')format('truetype');}
+@font-face {font-family: 'poke'; 
+src: url('fonts/Pokemon_Solid.ttf')format('truetype');}
 
 body {
 	background: url(images/background.png) no-repeat;
@@ -12,10 +12,21 @@ body {
 
 #navigation {
     position: relative;
-    top: 430px;
+    top: 380px;
     font-size: 24px;
-    font-family: "pokemon_solid", sans-serif;
+    font-family: "poke", sans-serif;
     background: transparent;
+    text-decoration: none;
+}
+
+.nav-link {
+    color: #FFCB05; 
+    text-shadow: 2px 2px #2D70B7;
+}
+
+.nav-link:hover {
+    color: yellow;
+    outline: 2px;
 }
 
 #logo img { 
@@ -34,12 +45,4 @@ body {
     margin-right: auto;
     padding-top: 10px;
     padding-left: 10px;
-}
-
-#mew img {
-    width: 25%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 150px;
 }
