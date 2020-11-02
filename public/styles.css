@@ -1,0 +1,58 @@
+/*Contact Styles*/
+body {
+	background: url(pokemon-sky.jpg) no-repeat;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-color: #F7F7F7;
+}
+.contact-boxes{
+    text-align: center;
+}
+.box{
+    display: inline-block;
+	width: 350px;
+	background: rgba(0, 0, 0, 40%);
+	padding: 60px;
+	text-align: center;
+	margin: 5px;
+    margin-top: auto;
+	margin-bottom: 5%;
+	color: white;
+	font-family: sans-serif;
+}
+.pfp{
+	border-radius: 50%;
+	width: 200px;
+	height: 200px;
+}
+.box h1{
+	font-family: "Bahnschrift Condensed", sans-serif;
+	font-size: 30px;
+	letter-spacing: 3px;
+	font-weight: 100;
+}
+.box h3{
+	font-size: 15px;
+	letter-spacing: 2px;
+	font-weight: 100;
+}
+.box p{
+	text-align: justify;
+}
+#pagetitle{
+	padding: 0.7%;
+	text-align: center;
+	font-size: 300%;
+	font-weight: 300;
+	font-family: sans-serif;
+	color: #D8DFD8;
+}
+.border{
+	width: 150px;
+	height: 4px;
+	background: rgba(0, 0, 0, 40%);
+	margin: 60px auto;
+}
+/*Form Submission Styling*/
