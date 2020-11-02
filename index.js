@@ -4,6 +4,12 @@ var express = require('express');
 var bodyParser = require('body-parser');
 //Require Axios for API calls
 const axios = require('axios');
+//Require node fetch
+var fetch = require('node-fetch');
+//Nodemailer
+var nodemailer = require('nodemailer');
+//Config
+var config = require('./config.json');
 //create express object, call express
 var app = express();
 //get port info
@@ -39,7 +45,36 @@ app.get('/battle', function(req, res){
     res.render('battle');
 });
 app.get('/contact', function(req, res){
-    res.render('contact');
+     res.render('contact');
+});
+
+// Contact POST
+app.post('/contact', function(req, res){
+    // Here we create the SMTP server. We use GMail for this.
+    const transport = nodemailer.createTransport({
+        host: config.email.host,
+        port: config.email.port,
+        secure: config.email.secure,
+        auth: {
+            user: config.email.user,
+            pass: config.email.pass
+        }
+    });
+    // Email options
+    const mailOpts = {
+        from: "SENDER INFO",
+        to: config.email.recipient.address,
+        subject: "New user message.",
+        text: "This is a test email."
+    }
+    // Send the email
+    transport.sendMail(mailOpts, (err, res) => {
+        if(err){
+            console.log(err); // Render error message here
+        }else{
+            console.log(res); // Render success message here
+        }
+    })
 });
 
 //server setup

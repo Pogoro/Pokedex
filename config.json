@@ -1,0 +1,12 @@
+{
+    "email" : {
+        "host" : "smtp.gmail.com",
+        "port" : 465,
+        "secure" : true,
+        "user" : "pogoro.pokedex@gmail.com",
+        "pass" : "secret",
+        "recipient" : {
+            "address" : "privatenomad@gmail.com"
+        }
+    }
+}
