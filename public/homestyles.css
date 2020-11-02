@@ -6,3 +6,17 @@ body {
 	background-attachment: fixed;
 	background-color: #F7F7F7;
 }
+
+#logo img { 
+    width:35%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#pogoro img {
+    width: 25%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
