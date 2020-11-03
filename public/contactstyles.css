@@ -75,19 +75,13 @@ body {
 	background: rgba(0, 0, 0, 40%);
 	margin: 60px auto;
 }
-/*Form Submission Styling///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-
-
-
-
-
-
-
-/*Good Form*/
-.contact-form{
-    margin: auto;
-    width: 50%;
-    max-width: 600px;
+/*Form Submission Styling*/
+.contact{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: 10.2%;
+    width: 91%;
     background: rgba(0, 0, 0, 40%);
     padding: 30px 40px;
     box-sizing: border-box;
@@ -96,25 +90,25 @@ body {
     /*box-shadow: 0 0 20px #000000b3;*/
     font-family: "pkmn", sans-serif;
 }
-.contact-form h1{
+.contact h1{
     color: white;
     margin-top: 0;
     font-weight: 200;
 }
-.txtb{
+.form-group{
     border: 1px solid gray;
     margin: 8px 0;
     padding: 12px 18px;
     border-radius: 8px;
 }
-.txtb label{
+.form-group label{
     display: block;
-    text-align: center;
+    text-align: left;
     color: white;
     text-transform: uppercase;
     font-size: 14px;
 }
-.txtb input, .txtb textarea{
+.form-group input, .form-group textarea{
     width: 100%;
     border: none;
     background: #EFCFAA;
