@@ -20,6 +20,8 @@ body {
 }
 
 .nav-link {
+    font-family: "poke", sans-serif;
+    text-decoration: none;
     color: #FFCB05; 
     text-shadow: 2px 2px #2D70B7;
 }
@@ -27,16 +29,6 @@ body {
 .nav-link:hover {
     color: yellow;
     outline: 2px;
-}
-
-.nav-link{
-    font-family: "poke", sans-serif;
-    text-decoration: none;
-    color: white;
-}
-
-.nav-link:hover{
-    color: #FFCB05;
 }
 
 #logo img { 

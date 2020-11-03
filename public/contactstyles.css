@@ -1,0 +1,166 @@
+/*Contact Styles*/
+@font-face {font-family: 'pkmn'; 
+src: url('fonts/PKMN RBYGSC.ttf')format('truetype');}
+body {
+    margin: 0; 
+    padding: 0;
+	background: url(images/pokemon_sunset.png) no-repeat;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-color: #F7F7F7;
+}
+.contact-boxes{
+    text-align: center;
+}
+.box{
+    display: inline-block;
+	width: 350px;
+    height: 500px;
+	background: rgba(0, 0, 0, 40%);
+	padding: 60px;
+	text-align: center;
+	margin: 5px;
+    margin-top: auto;
+	margin-bottom: 5%;
+    border-radius: 8px;
+	color: white;
+	font-family: "pkmn", sans-serif;
+}
+.pfp{
+    margin-bottom: 20px;
+	/*border-radius: 50%;*/
+	width: 200px;
+	height: 200px;
+}
+.box h1{
+    white-space: nowrap;
+    text-align: center;
+    margin: 20px, auto;
+	font-family: "pkmn", sans-serif;
+	font-size: 20px;
+	letter-spacing: 3px;
+	font-weight: 100;
+}
+#b-b{
+    width: 50%;
+    margin-left: -15px;
+}
+#z-s{
+    width: 50%;
+    margin-left: -5px;
+}
+.box h3{
+    white-space: nowrap;
+    text-align: center;
+    margin: 20px, auto;
+	font-size: 15px;
+	letter-spacing: 2px;
+	font-weight: 100;
+}
+.box p{
+	text-align: justify;
+}
+#pagetitle{
+	padding: 0.7%;
+	text-align: center;
+	font-size: 300%;
+	font-weight: 300;
+	font-family: "pkmn", sans-serif;
+	color: white;
+}
+.border{
+	width: 150px;
+	height: 4px;
+	background: rgba(0, 0, 0, 40%);
+	margin: 60px auto;
+}
+/*Icons*/
+ul{
+    display: flex;
+    justify-content: center;
+}
+ul li{
+    list-style: none;
+    position: relative;
+    display: block;
+    font-size: 30px;
+    height: 60px;
+    width: 60px;
+    background: #EFCFAA;
+    line-height: 60px;
+    border-radius: 50%;
+    margin: 24px 15px;
+    cursor: pointer;
+    transition: .6s;
+}
+ul li a{
+    color: #F7F7F7;
+    position: relative;
+    display: block;
+    font-size: 30px;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    transition: .6s;
+    cursor: pointer;
+}
+ul li a:hover{
+    transform: translate(0, -10px);
+    color:#A67DAF;
+}
+ul li:hover{
+    transform: translate(0, -10px);
+}
+/*Form Submission Styling*/
+.contact{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: 10.2%;
+    width: 91%;
+    background: rgba(0, 0, 0, 40%);
+    padding: 30px 40px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    text-align: center;
+    /*box-shadow: 0 0 20px #000000b3;*/
+    font-family: "pkmn", sans-serif;
+}
+.contact h1{
+    color: white;
+    margin-top: 0;
+    font-weight: 200;
+}
+.form-group{
+    border: 1px solid gray;
+    margin: 8px 0;
+    padding: 12px 18px;
+    border-radius: 8px;
+}
+.form-group label{
+    display: block;
+    text-align: left;
+    color: white;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+.form-group input, .form-group textarea{
+    width: 100%;
+    border: none;
+    background: #EFCFAA;
+    outline: none;
+    font-size: 18px;
+    margin-top: 6px;
+}
+.btn{
+    display: block;
+    background: #A67DAF;
+    padding: 14px 0;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 8px;
+    width: 100%;
+}

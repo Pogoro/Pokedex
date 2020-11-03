@@ -1,75 +1,21 @@
-/*Contact Styles*/
+/*This is a generalized style sheet*/
 @font-face {font-family: 'pkmn'; 
 src: url('fonts/PKMN RBYGSC.ttf')format('truetype');}
+
+@font-face {font-family: 'poke'; 
+src: url('fonts/Pokemon_Solid.ttf')format('truetype');}
+
+* {
+	vertical-align: baseline;
+	font-weight: inherit;
+	font-family: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	border: 0 none;
+	outline: 0;
+	padding: 0;
+	margin: 0;
+}
 body {
-	background: url(images/pokemon-sky.jpg) no-repeat;
-	background-size: cover;
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
 	background-color: #F7F7F7;
 }
-.contact-boxes{
-    text-align: center;
-}
-.box{
-    display: inline-block;
-	width: 350px;
-	background: rgba(0, 0, 0, 40%);
-	padding: 60px;
-	text-align: center;
-	margin: 5px;
-    margin-top: auto;
-	margin-bottom: 5%;
-	color: white;
-	font-family: "pkmn", sans-serif;
-}
-.pfp{
-    margin-bottom: 20px;
-	border-radius: 50%;
-	width: 200px;
-	height: 200px;
-}
-.box h1{
-    white-space: nowrap;
-    text-align: center;
-    margin: 20px, auto;
-	font-family: "pkmn", sans-serif;
-	font-size: 20px;
-	letter-spacing: 3px;
-	font-weight: 100;
-}
-#b-b{
-    width: 50%;
-    margin-left: -15px;
-}
-#z-s{
-    width: 50%;
-    margin-left: -5px;
-}
-.box h3{
-    white-space: nowrap;
-    text-align: center;
-    margin: 20px, auto;
-	font-size: 15px;
-	letter-spacing: 2px;
-	font-weight: 100;
-}
-.box p{
-	text-align: justify;
-}
-#pagetitle{
-	padding: 0.7%;
-	text-align: center;
-	font-size: 300%;
-	font-weight: 300;
-	font-family: "pkmn", sans-serif;
-	color: #D8DFD8;
-}
-.border{
-	width: 150px;
-	height: 4px;
-	background: rgba(0, 0, 0, 40%);
-	margin: 60px auto;
-}
-/*Form Submission Styling*/
