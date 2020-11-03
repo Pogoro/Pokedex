@@ -9,6 +9,7 @@ src: url('fonts/Pokemon_Solid.ttf')format('truetype');}
     font-family: "poke", sans-serif;
     background: transparent;
     color: #FFCB05;
+    text-shadow: 2px 2px #2d70b7;
     padding: 16px;
     font-size: 30px;
     border: none;
@@ -24,7 +25,7 @@ src: url('fonts/Pokemon_Solid.ttf')format('truetype');}
 }
 .dropdown-content {
     font-family: "pkmn", sans-serif;
-    background: #D8DFD8;
+    background: #a9afa9;
     display: none;
     position: absolute;
     min-width: 160px;
