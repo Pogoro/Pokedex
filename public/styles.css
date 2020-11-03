@@ -1,6 +1,10 @@
 /*Contact Styles*/
 @font-face {font-family: 'pkmn'; 
 src: url('fonts/PKMN RBYGSC.ttf')format('truetype');}
+
+@font-face {font-family: 'poke'; 
+src: url('fonts/Pokemon_Solid.ttf')format('truetype');}
+
 body {
     margin: 0; 
     padding: 0;
@@ -123,3 +127,38 @@ body {
     margin-top: 8px;
     width: 100%;
 }
+
+.dropbtn {
+    font-family: "poke", sans-serif;
+    background-color: #050505;
+    color: #FFCB05;
+    padding: 16px;
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 0px 0px 20px 0px;
+}
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #253E7D;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    font-family: "pkmn", sans-serif;
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    overflow: auto;
+    border-radius: 0px 0px 20px 0px;
+    z-index: 1;
+}
+.dropdown-content a {
+    color: #EDF2F5;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown a:hover {background-color: #050505;}
+.show {display: block;}
