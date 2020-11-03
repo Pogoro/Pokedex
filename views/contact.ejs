@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="styles.css" rel="stylesheet" />
+    <link href="contactstyles.css" rel="stylesheet" />
 
     <title>Contact Us</title>
   </head>
@@ -15,7 +15,7 @@
     <%- include('partials/header') %>
     <!-- Body -->
     <div id='pagetitle'>
-		<h2> Meet the Team </h2>
+		<h2>Meet the Team</h2>
 	</div>
     <!--The contact cards-->
     <div class = 'contact-boxes'>
@@ -53,7 +53,8 @@
         </div>
     </div>
     <!--The email form
-    <form>
+    <div class="contact">
+        <h1>Contact Us</h1>
         <div class="form-group">
             <label for="exampleFormControlInput1">Send us a message!</label>
             <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
@@ -63,21 +64,21 @@
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Type message here..."></textarea>
         </div>
         <button type="submit" class="contact-me-submit">Submit</button>
-    </form>
+    </div>
     -->
     <div class="contact-form">
         <h1>Contact Us</h1>
         <div class="txtb">
             <label>Full Name: </label>
-            <input type="text" name="" value="" placeholder="Enter Your Name">
+            <input type="text" name="" value="" placeholder="Name...">
         </div>
         <div class="txtb">
             <label>Email: </label>
-            <input type="email" name="" value="" placeholder="Enter Your Email">
+            <input type="email" name="" value="" placeholder="Email...">
         </div>
         <div class="txtb">
             <label>Message: </label>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
+            <textarea name="" id="" cols="30" rows="10" placeholder="Type message here..."></textarea>
         </div>
         <a class ="btn">Send</a>
     </div>
