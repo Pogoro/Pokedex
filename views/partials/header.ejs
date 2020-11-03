@@ -1,30 +1,27 @@
 <!-- views/partials/header.ejs -->
 <div class="dropdown">
-        <button onclick="myFunction()" class="dropbtn">Pogoro</button>
-        <div id="myDropdown" class="dropdown-content">
-            <a href="/">Home</a>
-            <a href="/pokedex">Pokédex</a>
-            <a href="/battle">Battle</a>
-            <a href="/contact">Contact</a>
-        </div>
+    <button onclick="myFunction()" class="dropbtn">Pogoro</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href="/">Home</a>
+        <a href="/pokedex">Pokédex</a>
+        <a href="/battle">Battle</a>
+        <a href="/contact">Contact</a>
     </div>
-
-    <script>
- 
+</div>
+<script> 
     function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
+        document.getElementById("myDropdown").classList.toggle("show");
     }
-
     window.onclick = function(event) {
         if (!event.target.matches('.dropbtn')) {
             var dropdowns = document.getElementsByClassName("dropdown-content");
             var i;
             for (i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
             }
         }
     }
-}
-    </script>
+</script>
