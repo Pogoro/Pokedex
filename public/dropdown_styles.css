@@ -13,10 +13,10 @@ src: url('fonts/Pokemon_Solid.ttf')format('truetype');}
     font-size: 30px;
     border: none;
     cursor: pointer;
-    border-radius: 0px 0px 20px 0px;
+    min-width: 160px;
 }
 .dropbtn:hover, .dropbtn:focus {
-    background-color: #253E7D;
+    background-color: black;
 }
 .dropdown {
     position: relative;
@@ -24,18 +24,22 @@ src: url('fonts/Pokemon_Solid.ttf')format('truetype');}
 }
 .dropdown-content {
     font-family: "pkmn", sans-serif;
+    background: #D8DFD8;
     display: none;
     position: absolute;
     min-width: 160px;
     overflow: auto;
-    border-radius: 0px 0px 20px 0px;
     z-index: 1;
 }
 .dropdown-content a {
-    color: #EDF2F5;
+    color: white;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
-.dropdown a:hover {background-color: #050505;}
-.show {display: block;}
+.dropdown a:hover {
+    background-color: #050505;
+}
+.show {
+    display: block;
+}
