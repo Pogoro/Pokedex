@@ -130,7 +130,7 @@ body {
 
 .dropbtn {
     font-family: "poke", sans-serif;
-    background-color: #050505;
+    background: transparent;
     color: #FFCB05;
     padding: 16px;
     font-size: 30px;
