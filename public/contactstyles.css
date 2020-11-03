@@ -17,6 +17,7 @@ body {
 .box{
     display: inline-block;
 	width: 350px;
+    height: 500px;
 	background: rgba(0, 0, 0, 40%);
 	padding: 60px;
 	text-align: center;
@@ -74,6 +75,43 @@ body {
 	height: 4px;
 	background: rgba(0, 0, 0, 40%);
 	margin: 60px auto;
+}
+/*Icons*/
+ul{
+    display: flex;
+    justify-content: center;
+}
+ul li{
+    list-style: none;
+    position: relative;
+    display: block;
+    font-size: 30px;
+    height: 60px;
+    width: 60px;
+    background: #EFCFAA;
+    line-height: 60px;
+    border-radius: 50%;
+    margin: 24px 15px;
+    cursor: pointer;
+    transition: .6s;
+}
+ul li a{
+    color: #F7F7F7;
+    position: relative;
+    display: block;
+    font-size: 30px;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    transition: .6s;
+    cursor: pointer;
+}
+ul li a:hover{
+    transform: translate(0, -10px);
+    color:#A67DAF;
+}
+ul li:hover{
+    transform: translate(0, -10px);
 }
 /*Form Submission Styling*/
 .contact{

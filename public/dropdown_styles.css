@@ -9,11 +9,7 @@ src: url('fonts/Pokemon_Solid.ttf')format('truetype');}
     font-family: "poke", sans-serif;
     background: transparent;
     color: #FFCB05;
-<<<<<<< HEAD
-    text-shadow: 2px 2px #2D70B7;
-=======
     text-shadow: 2px 2px #2d70b7;
->>>>>>> 9f4cb7bf4889494b5baee26771af100802feabf4
     padding: 16px;
     font-size: 30px;
     border: none;

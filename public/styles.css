@@ -1,164 +1,21 @@
+/*This is a generalized style sheet*/
 @font-face {font-family: 'pkmn'; 
 src: url('fonts/PKMN RBYGSC.ttf')format('truetype');}
 
 @font-face {font-family: 'poke'; 
 src: url('fonts/Pokemon_Solid.ttf')format('truetype');}
 
+* {
+	vertical-align: baseline;
+	font-weight: inherit;
+	font-family: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	border: 0 none;
+	outline: 0;
+	padding: 0;
+	margin: 0;
+}
 body {
-    margin: 0; 
-    padding: 0;
-	background: url(images/pokemon_sunset.png) no-repeat;
-	background-size: cover;
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
 	background-color: #F7F7F7;
 }
-.contact-boxes{
-    text-align: center;
-}
-.box{
-    display: inline-block;
-	width: 350px;
-	background: rgba(0, 0, 0, 40%);
-	padding: 60px;
-	text-align: center;
-	margin: 5px;
-    margin-top: auto;
-	margin-bottom: 5%;
-    border-radius: 8px;
-	color: white;
-	font-family: "pkmn", sans-serif;
-}
-.pfp{
-    margin-bottom: 20px;
-	border-radius: 50%;
-	width: 200px;
-	height: 200px;
-}
-.box h1{
-    white-space: nowrap;
-    text-align: center;
-    margin: 20px, auto;
-	font-family: "pkmn", sans-serif;
-	font-size: 20px;
-	letter-spacing: 3px;
-	font-weight: 100;
-}
-#b-b{
-    width: 50%;
-    margin-left: -15px;
-}
-#z-s{
-    width: 50%;
-    margin-left: -5px;
-}
-.box h3{
-    white-space: nowrap;
-    text-align: center;
-    margin: 20px, auto;
-	font-size: 15px;
-	letter-spacing: 2px;
-	font-weight: 100;
-}
-.box p{
-	text-align: justify;
-}
-#pagetitle{
-	padding: 0.7%;
-	text-align: center;
-	font-size: 300%;
-	font-weight: 300;
-	font-family: "pkmn", sans-serif;
-	color: #D8DFD8;
-}
-.border{
-	width: 150px;
-	height: 4px;
-	background: rgba(0, 0, 0, 40%);
-	margin: 60px auto;
-}
-/*Form Submission Styling*/
-.contact-form{
-    margin: auto;
-    width: 50%;
-    max-width: 600px;
-    background: rgba(0, 0, 0, 40%);
-    padding: 30px 40px;
-    box-sizing: border-box;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 0 20px #000000b3;
-    font-family: "pkmn", sans-serif;
-}
-.contact-form h1{
-    margin-top: 0;
-    font-weight: 200;
-}
-.txtb{
-    border: 1px solid gray;
-    margin: 8px 0;
-    padding: 12px 18px;
-    border-radius: 8px;
-}
-.txtb label{
-    display: block;
-    text-align: center;
-    color: #333;
-    text-transform: uppercase;
-    font-size: 14px;
-}
-.txtb input, .txtb textarea{
-    width: 100%;
-    border: none;
-    background: #E1C877;
-    outline: none;
-    font-size: 18px;
-    margin-top: 6px;
-}
-.btn{
-    display: block;
-    background: #A67DAF;
-    padding: 14px 0;
-    color: white;
-    text-transform: uppercase;
-    cursor: pointer;
-    margin-top: 8px;
-    width: 100%;
-}
-
-/* Dropdown Navbar */
-.dropbtn {
-    font-family: "poke", sans-serif;
-    background: transparent;
-    color: #FFCB05;
-    padding: 16px;
-    font-size: 30px;
-    border: none;
-    cursor: pointer;
-    border-radius: 0px 0px 20px 0px;
-}
-.dropbtn:hover, .dropbtn:focus {
-    background-color: #253E7D;
-}
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-.dropdown-content {
-    font-family: "pkmn", sans-serif;
-    display: none;
-    position: absolute;
-    min-width: 160px;
-    overflow: auto;
-    border-radius: 0px 0px 20px 0px;
-    z-index: 1;
-}
-.dropdown-content a {
-    color: #EDF2F5;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-.dropdown a:hover {background-color: #050505;}
-.show {display: block;}
