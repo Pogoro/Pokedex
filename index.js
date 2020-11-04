@@ -21,11 +21,8 @@ app.use(express.static("public"));
 //tell app to use Body parser
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
-
 // Page routes
 app.get('/', function(req, res){
-    
     res.render('home');
 });
 
@@ -50,6 +47,7 @@ app.get('/contact', function(req, res){
 
 // Contact POST
 app.post('/contact', function(req, res){
+    console.log(req.body.name);
     // Here we create the SMTP server. We use GMail for this.
     const transport = nodemailer.createTransport({
         host: config.email.host,
@@ -64,8 +62,8 @@ app.post('/contact', function(req, res){
     const mailOpts = {
         from: "SENDER INFO",
         to: config.email.recipient.address,
-        subject: "New user message.",
-        text: "This is a test email."
+        subject: `New message from ${req.body.name}.`,
+        text: `${req.body.message}\n\nYou can contact this person at ${req.body.email}`
     }
     // Send the email
     transport.sendMail(mailOpts, (err, res) => {
