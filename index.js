@@ -21,6 +21,18 @@ app.use(express.static("public"));
 //tell app to use Body parser
 app.use(bodyParser.urlencoded({ extended: true }));
 
+function Pokemon(name, type, weight, height, gender, image, description, weaknesses) {
+    this.name = name
+    this.type = type
+    this.weight = weight
+    this.height = height
+    this.gender = gender
+    this.image = image
+    this.description = description
+    this.weaknesses = weaknesses
+}
+
+
 // Page routes
 app.get('/', function(req, res){
     res.render('home');
@@ -36,6 +48,27 @@ app.get('/test', (req, res) => {
     res.render('test')
 })
 app.get('/pokedex', function(req, res){
+    // make api call
+    // put the result JSON in variable 
+    // render the list inside the view
+    const pokemon = []
+    axios.get('https://pokeapi.co/api/v2/pokemon?limit=1000/')
+    .then(response => {
+        // This then response is to get the names of the pokemon 
+        /*response.data.forEach(pokemon => {
+            pokemon.push(new Pokemon(pokemon.name, ))
+        });*/
+        response.data.results.forEach(pokemon => {
+            console.log(pokemon.name)
+        });
+    })
+
+    /* 
+        name, type, weight, height, gender, image, description, and weaknesses 
+
+
+    */
+    
     res.render('pokedex');
 });
 app.get('/battle', function(req, res){
