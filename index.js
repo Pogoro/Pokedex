@@ -59,7 +59,10 @@ app.get('/pokedex', function(req, res){
             pokemon.push(new Pokemon(pokemon.name, ))
         });*/
         response.data.results.forEach(pokemon => {
-            console.log(pokemon.name)
+            axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}/`)
+            .then(result => {
+                console.log(result.data)
+            })
         });
     })
 
