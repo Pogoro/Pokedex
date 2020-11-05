@@ -21,15 +21,13 @@ app.use(express.static("public"));
 //tell app to use Body parser
 app.use(bodyParser.urlencoded({ extended: true }));
 
-function Pokemon(name, type, weight, height, gender, image, description, weaknesses) {
+// This is the Pokemon data object that gets inserted into the pokemon list
+function Pokemon(name, type, weight, height, image) {
     this.name = name
     this.type = type
     this.weight = weight
     this.height = height
-    this.gender = gender
     this.image = image
-    this.description = description
-    this.weaknesses = weaknesses
 }
 
 
@@ -48,30 +46,38 @@ app.get('/test', (req, res) => {
     res.render('test')
 })
 app.get('/pokedex', function(req, res){
-    // make api call
-    // put the result JSON in variable 
-    // render the list inside the view
-    const pokemon = []
-    axios.get('https://pokeapi.co/api/v2/pokemon?limit=1000/')
+    
+    const pokemonList = []
+    // This API call is to get the names of the pokemon
+    axios.get('https://pokeapi.co/api/v2/pokemon?limit=700/')
     .then(response => {
-        // This then response is to get the names of the pokemon 
-        /*response.data.forEach(pokemon => {
-            pokemon.push(new Pokemon(pokemon.name, ))
-        });*/
+        //console.log(Object.keys(response.data.results).length)
         response.data.results.forEach(pokemon => {
+            // This API call is to actually get relelevant data about the pokemon by name
             axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}/`)
             .then(result => {
-                console.log(result.data)
+
+                
+                //pokemonList.push(new Pokemon(results.data.name, ))
+                //console.log(result.data.types)
+                //console.log(result.data.weight)
+                //console.log(result.data.sprites.front_default)
+                //console.log(`The height for ${result.data.name} is ${result.data.height}.`)
+                //console.log(result.data.stats)
+                //result.data.stats.forEach(stat => {
+                //    console.log(stat.stat.name)
+                //})
+                //console.log(result.data.count)
+                
+                //result.data.types.forEach(elem => {
+                //    console.log(elem.type.name)
+                //})
+
+                //pokemonList.push(new Pokemon(result.data.name, ))
             })
-        });
+            .catch( err => console.error('No data found'))
+        }); 
     })
-
-    /* 
-        name, type, weight, height, gender, image, description, and weaknesses 
-
-
-    */
-    
     res.render('pokedex');
 });
 app.get('/battle', function(req, res){
