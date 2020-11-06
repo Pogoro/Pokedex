@@ -22,62 +22,45 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // This is the Pokemon data object that gets inserted into the pokemon list
-function Pokemon(name, type, weight, height, image) {
+function Pokemon(name, type, weight, height, image, moves) {
     this.name = name
     this.type = type
     this.weight = weight
     this.height = height
     this.image = image
+    this.moves = moves
 }
 
+function getPokedex() {
+    return new Promise( (resolve, reject) => {
+        let output = []
+        axios.get('https://pokeapi.co/api/v2/pokemon?limit=700/')
+        .then(response => {
+            response.data.results.forEach(pokemon => {
+                axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}/`)
+                .then(result => {
+                    output.push(new Pokemon(result.data.name,result.data.types[1].type.name, result.data.weight, result.data.height, result.data.sprites.front_default, result.data.moves[0].move.name ))
+                })
+            })
+            resolve(output)
+        })
+        .catch( err => {
+            console.error('Data not found for this Pokemon')
+            reject(err)
+        })
+    })
+}
 
 // Page routes
 app.get('/', function(req, res){
     res.render('home');
 });
 
-app.get('/test', (req, res) => {
-    const testPokemon = [];
-    axios.get('https://pokeapi.co/api/v2/pokemon/')
-    .then( response => {
-        console.log(response.data)
-        //Closes #39
-    })
-    res.render('test')
-})
-app.get('/pokedex', function(req, res){
+app.get('/pokedex', async function(req, res){
     
-    const pokemonList = []
+    const pokemonList = await getPokedex();
     // This API call is to get the names of the pokemon
-    axios.get('https://pokeapi.co/api/v2/pokemon?limit=700/')
-    .then(response => {
-        //console.log(Object.keys(response.data.results).length)
-        response.data.results.forEach(pokemon => {
-            // This API call is to actually get relelevant data about the pokemon by name
-            axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}/`)
-            .then(result => {
-
-                
-                //pokemonList.push(new Pokemon(results.data.name, ))
-                //console.log(result.data.types)
-                //console.log(result.data.weight)
-                //console.log(result.data.sprites.front_default)
-                //console.log(`The height for ${result.data.name} is ${result.data.height}.`)
-                //console.log(result.data.stats)
-                //result.data.stats.forEach(stat => {
-                //    console.log(stat.stat.name)
-                //})
-                //console.log(result.data.count)
-                
-                //result.data.types.forEach(elem => {
-                //    console.log(elem.type.name)
-                //})
-
-                //pokemonList.push(new Pokemon(result.data.name, ))
-            })
-            .catch( err => console.error('No data found'))
-        }); 
-    })
+    console.log(pokemonList)
     res.render('pokedex');
 });
 app.get('/battle', function(req, res){
