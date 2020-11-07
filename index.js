@@ -33,22 +33,30 @@ function Pokemon(name, type, weight, height, image, moves) {
 
 function getPokedex() {
     return new Promise( (resolve, reject) => {
-        let output = []
+        let output = [];
         axios.get('https://pokeapi.co/api/v2/pokemon?limit=700/')
         .then(response => {
             response.data.results.forEach(pokemon => {
                 axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}/`)
                 .then(result => {
-                    output.push(new Pokemon(result.data.name,result.data.types[1].type.name, result.data.weight, result.data.height, result.data.sprites.front_default, result.data.moves[0].move.name ))
+                    output.push(new Pokemon(
+                        result.data.name,
+                        //result.data.types[1].type.name, <-- Issue here
+                        result.data.weight,
+                        result.data.height,
+                        result.data.sprites.front_default,
+                        result.data.moves[0].move.name)
+                    )
                 })
             })
-            resolve(output)
+            console.log(output);
+            resolve(output);
         })
         .catch( err => {
-            console.error('Data not found for this Pokemon')
-            reject(err)
-        })
-    })
+            console.error('Data not found for this Pokemon');
+            reject(err);
+        });
+    });
 }
 
 // Page routes
@@ -57,11 +65,14 @@ app.get('/', function(req, res){
 });
 
 app.get('/pokedex', async function(req, res){
-    
-    const pokemonList = await getPokedex();
-    // This API call is to get the names of the pokemon
-    console.log(pokemonList)
-    res.render('pokedex');
+    try{
+        const pokemonList = await getPokedex();
+        // This API call is to get the names of the pokemon
+        console.log(pokemonList)
+        res.render('pokedex');
+    } catch(e){
+        console.error(e);
+    }
 });
 app.get('/battle', function(req, res){
     res.render('battle');
