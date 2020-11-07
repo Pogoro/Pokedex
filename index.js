@@ -47,8 +47,11 @@ function getPokedex() {
                         result.data.sprites.front_default,
                         result.data.moves[0].move.name)
                     )
+                }).catch(err => {
+                    console.log(err);
+                    reject(err);
                 })
-            })
+            });
             console.log(output);
             resolve(output);
         })
@@ -56,6 +59,9 @@ function getPokedex() {
             console.error('Data not found for this Pokemon');
             reject(err);
         });
+    }).catch(err => {
+        console.error(err);
+        reject(err);
     });
 }
 
