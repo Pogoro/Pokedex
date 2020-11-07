@@ -32,7 +32,11 @@ function Pokemon(name, type, weight, height, image, moves) {
 }
 
 function getPokedex() {
-    return new Promise( (resolve, reject) => {
+      
+
+
+
+    /*return new Promise( (resolve, reject) => {
         let output = []
         axios.get('https://pokeapi.co/api/v2/pokemon?limit=700/')
         .then(response => {
@@ -48,7 +52,7 @@ function getPokedex() {
             console.error('Data not found for this Pokemon')
             reject(err)
         })
-    })
+    }) */
 }
 
 // Page routes
