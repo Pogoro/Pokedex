@@ -31,15 +31,15 @@ function Pokemon(name, type, weight, height, image, moves) {
     this.image = image
     this.moves = moves
 }
-
-function getPokedex(number=25) {
+// Returns an array of Pokemon objects for their IDs in the given range, from startNum to endNum.
+function getPokedex(startNum=1,endNum=25) {
     const interceptID = rax.attach();
     return new Promise( (resolve, reject) => {
         const SITE = 'https://pokeapi.co';
         let output = [];
         let urls = [];
         // Get the URLs of all the queried pokemon
-        for(let id = 1; id <= number; id++){
+        for(let id = startNum; id <= endNum; id++){
             urls.push(`${SITE}/api/v2/pokemon/${id}`);
         }
         // Get a list of promises for each GET
@@ -47,7 +47,7 @@ function getPokedex(number=25) {
             return urls.map((url) => axios.get(url, {timeout: 5000}));
         })();
         // Complete all promises and push to output
-        // TODO: Account for 404 in case of going over max number of pokemon in API db
+        // TODO: Account for going over max number of pokemon. As of 11/12/2020, this num is 893
         Promise.all(promises).then((res) => {
             res.forEach((result) => {
                 output.push(new Pokemon(
