@@ -4,6 +4,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 //Require Axios for API calls
 const axios = require('axios');
+const rax = require('retry-axios');
 //Require node fetch
 var fetch = require('node-fetch');
 //Nodemailer
@@ -21,22 +22,74 @@ app.use(express.static("public"));
 //tell app to use Body parser
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// This is the Pokemon data object that gets inserted into the pokemon list
+function Pokemon(name, type, weight, height, image, moves) {
+    this.name = name
+    this.type = type
+    this.weight = weight
+    this.height = height
+    this.image = image
+    this.moves = moves
+}
+// Returns an array of Pokemon objects for their IDs in the given range, from startNum to endNum.
+function getPokedex(startNum=1,endNum=25) {
+    const interceptID = rax.attach();
+    return new Promise( (resolve, reject) => {
+        const SITE = 'https://pokeapi.co';
+        let output = [];
+        let urls = [];
+        // Get the URLs of all the queried pokemon
+        for(let id = startNum; id <= endNum && id <= 893; id++){
+            urls.push(`${SITE}/api/v2/pokemon/${id}`);
+        }
+        // Get a list of promises for each GET
+        let promises = (() => {
+            return urls.map((url) => axios.get(url, {timeout: 5000}));
+        })();
+        // Complete all promises and push to output
+        // TODO: Account for going over max number of pokemon. As of 11/12/2020, this num is 893
+        Promise.all(promises).then((res) => {
+            res.forEach((result) => {
+                output.push(new Pokemon(
+                    result.data.name,
+                    result.data.types,
+                    result.data.weight,
+                    result.data.height,
+                    result.data.sprites.front_default,
+                    result.data.moves
+                ));
+            });   
+            // Resolve the pending promise with the output
+            resolve(output);
+        }).catch(err => {
+            console.log(err);
+        });
+
+    }).catch(err => {
+        console.error(err);
+        reject(err);
+    });
+    res.render('')
+}
+
 // Page routes
 app.get('/', function(req, res){
     res.render('home');
 });
-
-app.get('/test', (req, res) => {
-    const testPokemon = [];
-    axios.get('https://pokeapi.co/api/v2/pokemon/')
-    .then( response => {
-        console.log(response.data)
-        //Closes #39
-    })
-    res.render('test')
-})
-app.get('/pokedex', function(req, res){
-    res.render('pokedex');
+app.get('/pokedex', async function(req, res){
+    try{
+        const pokemonList = await getPokedex();
+        // This API call is to get the names of the pokemon
+        //console.log(pokemonList)
+        pokemonList.forEach(element => {
+            console.log(element.name)
+        });
+        res.render('pokedex', {
+            pokemon: pokemonList
+        });
+    } catch(e){
+        console.error(e);
+    }
 });
 app.get('/battle', function(req, res){
     res.render('battle');
