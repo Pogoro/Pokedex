@@ -95,6 +95,7 @@ async function updateCache(){
             for (let row of res.rows) {
                 console.log(JSON.stringify(row));
             }
+            client.end();
         });
     });
 }
