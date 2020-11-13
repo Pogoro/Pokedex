@@ -33,28 +33,28 @@ function Pokemon(name, type, weight, height, image, moves) {
     this.moves = moves
 }
 
-function getPokedex() {
+function getPokedex(number=25) {
     return new Promise( (resolve, reject) => {
         const SITE = 'https://pokeapi.co';
         let output = [];
         let urls = [];
-        
-        console.time('Time taken to complete query:');
-        
-        const NUM = 50;
-        for(let i = 1; i <= 50; i++){
-            urls.push(`${SITE}/api/v2/pokemon/${i}`);
+        // Get the URLs of all the queried pokemon
+        for(let id = 1; id <= number; id++){
+            urls.push(`${SITE}/api/v2/pokemon/${id}`);
         }
-
+        // Get a list of promises for each GET
         let promises = (() => {
             return urls.map((url) => axios.get(url));
         })();
-
+        // Complete all promises and push to output
+        // TODO: Account for 404 in case of maxed number
+        // TODO: Retry on failed request (that isnt a 404)
         Promise.all(promises).then((res) => {
             res.forEach((result) => {
-                console.log(`${result.data.name} [${result.data.id}]`);
+                output.push(result.data);
             });   
-            console.timeEnd('Time taken to complete query:');
+            // Resolve the pending promise with the output
+            resolve(output);
         }).catch(err => {
             console.log(err);
         });
