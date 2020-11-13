@@ -78,7 +78,7 @@ function getPokedex(startNum=1,endNum=25) {
         console.error(err);
         reject(err);
     });
-
+    res.render('')
 }
 
 async function updateCache(){
@@ -100,13 +100,17 @@ async function updateCache(){
 app.get('/', function(req, res){
     res.render('home');
 });
-
 app.get('/pokedex', async function(req, res){
     try{
         //const pokemonList = await getPokedex();
         // This API call is to get the names of the pokemon
         //console.log(pokemonList)
-        res.render('pokedex');
+        pokemonList.forEach(element => {
+            console.log(element.name)
+        });
+        res.render('pokedex', {
+            pokemon: pokemonList
+        });
     } catch(e){
         console.error(e);
     }
