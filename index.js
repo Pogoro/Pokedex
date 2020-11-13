@@ -1,14 +1,10 @@
-//require express
 var express = require('express');
-//reqiure body parser
 var bodyParser = require('body-parser');
-//Require Axios for API calls
 const axios = require('axios');
 const rax = require('retry-axios');
-//Require node fetch
 var fetch = require('node-fetch');
-//Nodemailer
 var nodemailer = require('nodemailer');
+const { Client } = require('pg');
 //Config
 var config = require('./config.json');
 //create express object, call express
@@ -21,9 +17,21 @@ app.set('view engine', 'ejs');
 app.use(express.static("public"));
 //tell app to use Body parser
 app.use(bodyParser.urlencoded({ extended: true }));
+// PostGres client
+const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl:{
+        rejectUnauthorized: false
+    }
+});
+
+client.connect();
+
+updateCache();
 
 // This is the Pokemon data object that gets inserted into the pokemon list
-function Pokemon(name, type, weight, height, image, moves) {
+function Pokemon(id, name, type, weight, height, image, moves) {
+    this.id = id
     this.name = name
     this.type = type
     this.weight = weight
@@ -51,6 +59,7 @@ function getPokedex(startNum=1,endNum=25) {
         Promise.all(promises).then((res) => {
             res.forEach((result) => {
                 output.push(new Pokemon(
+                    result.data.id,
                     result.data.name,
                     result.data.types,
                     result.data.weight,
@@ -72,6 +81,21 @@ function getPokedex(startNum=1,endNum=25) {
 
 }
 
+async function updateCache(){
+    let pokemon = [];
+    const STEP = 25;
+    const MAX_POKEMON = 893;
+
+    for(let i = 1; i <= MAX_POKEMON; i += STEP){
+        console.log(i);
+        let list = await getPokedex(i, i + STEP);
+        pokemon = pokemon.concat(list);
+    }
+    const tableName = 'pokemon';
+    pokemon.forEach((pokemon) => {
+        client.query(`INSERT INTO ${tableName} (id, data) VALUES (${pokemon.id}, pokemon);`);
+    });
+}
 // Page routes
 app.get('/', function(req, res){
     res.render('home');
@@ -79,9 +103,9 @@ app.get('/', function(req, res){
 
 app.get('/pokedex', async function(req, res){
     try{
-        const pokemonList = await getPokedex();
+        //const pokemonList = await getPokedex();
         // This API call is to get the names of the pokemon
-        console.log(pokemonList)
+        //console.log(pokemonList)
         res.render('pokedex');
     } catch(e){
         console.error(e);
