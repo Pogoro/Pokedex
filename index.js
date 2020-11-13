@@ -81,6 +81,9 @@ app.get('/pokedex', async function(req, res){
         const pokemonList = await getPokedex();
         // This API call is to get the names of the pokemon
         //console.log(pokemonList)
+        pokemonList.forEach(element => {
+            console.log(element.name)
+        });
         res.render('pokedex', {
             pokemon: pokemonList
         });
