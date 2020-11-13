@@ -4,12 +4,14 @@ var express = require('express');
 var bodyParser = require('body-parser');
 //Require Axios for API calls
 const axios = require('axios');
+var retry = require('axios-retry');
 //Require node fetch
 var fetch = require('node-fetch');
 //Nodemailer
 var nodemailer = require('nodemailer');
 //Config
 var config = require('./config.json');
+const { default: axiosRetry } = require('axios-retry');
 //create express object, call express
 var app = express();
 //get port info
@@ -33,32 +35,34 @@ function Pokemon(name, type, weight, height, image, moves) {
 
 function getPokedex() {
     return new Promise( (resolve, reject) => {
+        const SITE = 'https://pokeapi.co';
         let output = [];
-        axios.get('https://pokeapi.co/api/v2/pokemon?limit=700/')
-        .then(response => {
-            response.data.results.forEach(pokemon => {
-                axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}/`)
-                .then(result => {
-                    output.push(new Pokemon(
-                        result.data.name,
-                        //result.data.types[1].type.name, <-- Issue here
-                        result.data.weight,
-                        result.data.height,
-                        result.data.sprites.front_default,
-                        result.data.moves[0].move.name)
-                    )
-                }).catch(err => {
-                    console.log(err);
-                    reject(err);
-                })
+        let urls = [];
+        axios.get(`${SITE}/api/v2/pokemon?limit=50/`)
+            .then(response => {
+                response.data.results.forEach(pokemon => {
+                    urls.push(`${SITE}/api/v2/pokemon/${pokemon.name}`);
+                });
+            })
+            .then(() => {
+                let promises = (() => {
+                    return urls.map((url) => axios.get(url));
+                })();
+
+                Promise.all(promises).then((res) => {
+                    res.forEach((result) => {
+                        console.log(`${result.data.name} [${result.data.id}]`);
+                    });
+                }).catch(err => console.log(err));
+            })
+            .catch(err => {
+                console.error(err);
+                reject(err);
+            })
+            .catch( err => {
+                console.error('Data not found for this Pokemon');
+                reject(err);
             });
-            console.log(output);
-            resolve(output);
-        })
-        .catch( err => {
-            console.error('Data not found for this Pokemon');
-            reject(err);
-        });
     }).catch(err => {
         console.error(err);
         reject(err);
