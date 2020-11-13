@@ -4,14 +4,13 @@ var express = require('express');
 var bodyParser = require('body-parser');
 //Require Axios for API calls
 const axios = require('axios');
-var retry = require('axios-retry');
+const rax = require('retry-axios');
 //Require node fetch
 var fetch = require('node-fetch');
 //Nodemailer
 var nodemailer = require('nodemailer');
 //Config
 var config = require('./config.json');
-const { default: axiosRetry } = require('axios-retry');
 //create express object, call express
 var app = express();
 //get port info
@@ -34,6 +33,7 @@ function Pokemon(name, type, weight, height, image, moves) {
 }
 
 function getPokedex(number=25) {
+    const interceptID = rax.attach();
     return new Promise( (resolve, reject) => {
         const SITE = 'https://pokeapi.co';
         let output = [];
@@ -44,14 +44,20 @@ function getPokedex(number=25) {
         }
         // Get a list of promises for each GET
         let promises = (() => {
-            return urls.map((url) => axios.get(url));
+            return urls.map((url) => axios.get(url, {timeout: 5000}));
         })();
         // Complete all promises and push to output
-        // TODO: Account for 404 in case of maxed number
-        // TODO: Retry on failed request (that isnt a 404)
+        // TODO: Account for 404 in case of going over max number of pokemon in API db
         Promise.all(promises).then((res) => {
             res.forEach((result) => {
-                output.push(result.data);
+                output.push(new Pokemon(
+                    result.data.name,
+                    result.data.types,
+                    result.data.weight,
+                    result.data.height,
+                    result.data.sprites.front_default,
+                    result.data.moves
+                ));
             });   
             // Resolve the pending promise with the output
             resolve(output);
