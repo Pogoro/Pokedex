@@ -39,7 +39,7 @@ function getPokedex(startNum=1,endNum=25) {
         let output = [];
         let urls = [];
         // Get the URLs of all the queried pokemon
-        for(let id = startNum; id <= endNum; id++){
+        for(let id = startNum; id <= endNum && id <= 893; id++){
             urls.push(`${SITE}/api/v2/pokemon/${id}`);
         }
         // Get a list of promises for each GET
