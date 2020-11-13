@@ -90,7 +90,12 @@ async function updateCache(){
     }
     const tableName = 'pokemon';
     pokemon.forEach((pokemon) => {
-        client.query(`INSERT INTO ${tableName} (id, data) VALUES (${pokemon.id}, pokemon);`);
+        client.query(`INSERT INTO ${tableName} (id, data) VALUES (${pokemon.id}, pokemon);`, (err, res) => {
+            if(err) throw err;
+            for (let row of res.rows) {
+                console.log(JSON.stringify(row));
+            }
+        });
     });
 }
 // Page routes
