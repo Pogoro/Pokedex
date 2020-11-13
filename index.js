@@ -38,35 +38,32 @@ function getPokedex() {
         const SITE = 'https://pokeapi.co';
         let output = [];
         let urls = [];
-        axios.get(`${SITE}/api/v2/pokemon?limit=50/`)
-            .then(response => {
-                response.data.results.forEach(pokemon => {
-                    urls.push(`${SITE}/api/v2/pokemon/${pokemon.name}`);
-                });
-            })
-            .then(() => {
-                let promises = (() => {
-                    return urls.map((url) => axios.get(url));
-                })();
+        
+        console.time('Time taken to complete query:');
+        
+        const NUM = 50;
+        for(let i = 1; i <= 50; i++){
+            urls.push(`${SITE}/api/v2/pokemon/${i}`);
+        }
 
-                Promise.all(promises).then((res) => {
-                    res.forEach((result) => {
-                        console.log(`${result.data.name} [${result.data.id}]`);
-                    });
-                }).catch(err => console.log(err));
-            })
-            .catch(err => {
-                console.error(err);
-                reject(err);
-            })
-            .catch( err => {
-                console.error('Data not found for this Pokemon');
-                reject(err);
-            });
+        let promises = (() => {
+            return urls.map((url) => axios.get(url));
+        })();
+
+        Promise.all(promises).then((res) => {
+            res.forEach((result) => {
+                console.log(`${result.data.name} [${result.data.id}]`);
+            });   
+            console.timeEnd('Time taken to complete query:');
+        }).catch(err => {
+            console.log(err);
+        });
+
     }).catch(err => {
         console.error(err);
         reject(err);
     });
+
 }
 
 // Page routes
