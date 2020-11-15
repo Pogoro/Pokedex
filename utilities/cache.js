@@ -15,7 +15,9 @@ const client = new Client({
 });
 
 client.connect();
-
+downloadCache().then(res => console.log(res.filter(item => {
+    
+})));
 // Example of how to query data:
 
 // updateCache().then(() => {
@@ -50,6 +52,21 @@ function updateCache(){
 
     });
 }
+// Returns a promise for an array of every pokemon from the cache. TEST
+function downloadCache(){
+    return new Promise((resolve, reject) => {
+        let pokemon = [];
+        client.query(`SELECT data FROM pokemon;`)
+            .then(res => {
+                pokemon = res.rows;
+                resolve(pokemon);
+            })
+            .catch(err => {
+                reject(err);
+            });
+    });
+}
 
 // Export statements
 exports.updateCache = updateCache;
+exports.downloadCache = downloadCache;
