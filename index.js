@@ -4,7 +4,6 @@ const axios = require('axios');
 const rax = require('retry-axios');
 var fetch = require('node-fetch');
 var nodemailer = require('nodemailer');
-const { Client } = require('pg');
 //Config
 var config = require('./config.json');
 //create express object, call express
@@ -18,111 +17,9 @@ app.set('view engine', 'ejs');
 app.use(express.static("public"));
 //tell app to use Body parser
 app.use(bodyParser.urlencoded({ extended: true }));
-// PostGres client
-const LOCAL_USER = 'api';
-const LOCAL_PASS = 'testpass';
-const LOCAL_HOST = 'localhost:5432';
-const LOCAL_DB = 'pokemon_api';
-const client = new Client({
-    connectionString: process.env.DATABASE_URL || `postgresql://${LOCAL_USER}:${LOCAL_PASS}@${LOCAL_HOST}/${LOCAL_DB}`
-});
-
-client.connect();
 
 updateCache();
 
-
-
-// This is the Pokemon data object that gets inserted into the pokemon list
-function Pokemon(id, name, type, weight, height, image, moves) {
-    this.id = id
-    this.name = name
-    this.type = type
-    this.weight = weight
-    this.height = height
-    this.image = image
-    this.moves = moves
-}
-// Returns an array of Pokemon objects for their IDs in the given range, from startNum to endNum.
-function getPokedex(startNum=1,endNum=25) {
-    const interceptID = rax.attach();
-    return new Promise( (resolve, reject) => {
-        const SITE = 'https://pokeapi.co';
-        let output = [];
-        let urls = [];
-        // Get the URLs of all the queried pokemon
-        for(let id = startNum; id <= endNum && id <= 893; id++){
-            urls.push(`${SITE}/api/v2/pokemon/${id}`);
-        }
-        // Get a list of promises for each GET
-        let promises = (() => {
-            return urls.map((url) => axios.get(url, {timeout: 5000}));
-        })();
-        // Complete all promises and push to output
-        // TODO: Account for going over max number of pokemon. As of 11/12/2020, this num is 893
-        Promise.all(promises).then((res) => {
-            res.forEach((result) => {
-                output.push(new Pokemon(
-                    result.data.id,
-                    result.data.name,
-                    result.data.types,
-                    result.data.weight,
-                    result.data.height,
-                    result.data.sprites.front_default,
-                    result.data.moves
-                ));
-            });   
-            // Resolve the pending promise with the output
-            resolve(output);
-        }).catch(err => {
-            console.log(err);
-        });
-
-    }).catch(err => {
-        console.error(err);
-        reject(err);
-    });
-    res.render('')
-}
-
-async function updateCache(){
-    let pokemon = [];
-    const STEP = 25;
-    const MAX_POKEMON = 893;
-
-    for(let i = 1; i <= MAX_POKEMON; i += STEP){
-        let list = await getPokedex(i, i + STEP);
-        pokemon = pokemon.concat(list);
-    }
-    (() => {
-        return new Promise((resolve, reject) => {
-            let prom = (() => {
-                let promises = [];
-                pokemon.forEach(pokemon => {
-                    promises.push(
-                        client.query(`INSERT INTO pokemon (id, data) VALUES ($1, $2)
-                                    ON CONFLICT (id)
-                                    DO
-                                        UPDATE SET data = $2;`,
-                        [pokemon.id, JSON.stringify(pokemon)])
-                    );
-                });
-                return promises;
-            })();
-            Promise.all(prom)
-            .then(res => {
-                resolve();
-            });
-        });
-    })()
-    .then(() => {
-        console.log("Finished caching!");
-        client.query('SELECT data FROM pokemon WHERE ID = 1;').then(res => {
-            console.log(JSON.parse(res.rows[0].data));
-        });
-    });
-    
-}
 // Page routes
 app.get('/', function(req, res){
     res.render('home');
