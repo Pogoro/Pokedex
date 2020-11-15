@@ -11,6 +11,7 @@ var config = require('./config.json');
 var app = express();
 //get port info
 const port = process.env.PORT || 3000;
+//require('trace-unhandled');
 //tell app to use EJS for templates
 app.set('view engine', 'ejs');
 //Make styles public
@@ -18,13 +19,19 @@ app.use(express.static("public"));
 //tell app to use Body parser
 app.use(bodyParser.urlencoded({ extended: true }));
 // PostGres client
+const LOCAL_USER = 'api';
+const LOCAL_PASS = 'testpass';
+const LOCAL_HOST = 'localhost:5432';
+const LOCAL_DB = 'pokemon_api';
 const client = new Client({
-    connectionString: process.env.DATABASE_URL,
+    connectionString: process.env.DATABASE_URL || `postgresql://${LOCAL_USER}:${LOCAL_PASS}@${LOCAL_HOST}/${LOCAL_DB}`
 });
 
 client.connect();
 
 updateCache();
+
+
 
 // This is the Pokemon data object that gets inserted into the pokemon list
 function Pokemon(id, name, type, weight, height, image, moves) {
@@ -84,20 +91,37 @@ async function updateCache(){
     const MAX_POKEMON = 893;
 
     for(let i = 1; i <= MAX_POKEMON; i += STEP){
-        console.log(i);
         let list = await getPokedex(i, i + STEP);
         pokemon = pokemon.concat(list);
     }
-    const tableName = 'pokemon';
-    pokemon.forEach((pokemon) => {
-        client.query(`INSERT INTO ${tableName} (id, data) VALUES (${pokemon.id}, pokemon);`, (err, res) => {
-            if(err) throw err;
-            for (let row of res.rows) {
-                console.log(JSON.stringify(row));
-            }
-            client.end();
+    (() => {
+        return new Promise((resolve, reject) => {
+            let prom = (() => {
+                let promises = [];
+                pokemon.forEach(pokemon => {
+                    promises.push(
+                        client.query(`INSERT INTO pokemon (id, data) VALUES ($1, $2)
+                                    ON CONFLICT (id)
+                                    DO
+                                        UPDATE SET data = $2;`,
+                        [pokemon.id, JSON.stringify(pokemon)])
+                    );
+                });
+                return promises;
+            })();
+            Promise.all(prom)
+            .then(res => {
+                resolve();
+            });
+        });
+    })()
+    .then(() => {
+        console.log("Finished caching!");
+        client.query('SELECT data FROM pokemon WHERE ID = 1;').then(res => {
+            console.log(JSON.parse(res.rows[0].data));
         });
     });
+    
 }
 // Page routes
 app.get('/', function(req, res){
