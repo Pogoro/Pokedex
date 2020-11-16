@@ -27,8 +27,9 @@ function filterByType(pokemon, typeFilter){
 }
 // Given a list of pokemon, return an array of pokemon whose name match a given substring
 function filterByName(pokemon, nameString){
-
+    return pokemon.filter(poke => poke.name.includes(nameString.toLowerCase()));
 }
 
 // Exports
 exports.filterByType = filterByType;
+exports.filterByName = filterByName;
