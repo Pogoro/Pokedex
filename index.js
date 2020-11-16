@@ -22,7 +22,7 @@ app.use(express.static("public"));
 //tell app to use Body parser
 app.use(bodyParser.urlencoded({ extended: true }));
 
-updateCache();
+//cache.updateCache();
 
 // Page routes
 app.get('/', function(req, res){
