@@ -29,7 +29,25 @@ function filterByType(pokemon, typeFilter){
 function filterByName(pokemon, nameString){
     return pokemon.filter(poke => poke.name.includes(nameString.toLowerCase()));
 }
+// Given a list of pokemon, return an array of pokemon whose weight resides in a specific range
+function filterByWeight(pokemon, startWeight, endWeight){
+    return pokemon.filter(poke => {
+        if(poke.weight >= startWeight && poke.weight <= endWeight){
+            return true;
+        }else return false;
+    });
+}
+// Given a list of pokemon, return an array of pokemon whose height resides in a specific range
+function filterByHeight(pokemon, startHeight, endHeight){
+    return pokemon.filter(poke => {
+        if(poke.height >= startHeight && poke.height <= endHeight){
+            return true;
+        }else return false;
+    });
+}
 
 // Exports
 exports.filterByType = filterByType;
 exports.filterByName = filterByName;
+exports.filterByWeight = filterByWeight;
+exports.filterByHeight = filterByHeight;
