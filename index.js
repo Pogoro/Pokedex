@@ -4,6 +4,10 @@ const axios = require('axios');
 const rax = require('retry-axios');
 var fetch = require('node-fetch');
 var nodemailer = require('nodemailer');
+//Modules
+var cache = require('./utilities/cache.js');
+var requests = require('./utilities/requests.js');
+var filter = require('./utilities/filter.js');
 //Config
 var config = require('./config.json');
 //create express object, call express

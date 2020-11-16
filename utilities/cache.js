@@ -15,9 +15,7 @@ const client = new Client({
 });
 
 client.connect();
-downloadCache().then(res => console.log(res.filter(item => {
-    
-})));
+
 // Example of how to query data:
 
 // updateCache().then(() => {
@@ -59,6 +57,9 @@ function downloadCache(){
         client.query(`SELECT data FROM pokemon;`)
             .then(res => {
                 pokemon = res.rows;
+                pokemon = pokemon.map((item, ind) => {
+                    return item.data;
+                });
                 resolve(pokemon);
             })
             .catch(err => {
