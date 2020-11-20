@@ -33,7 +33,8 @@ app.get('/pokedex', function(req, res){
     cache.downloadCache().then(poke => {
         pokemonList = poke;
         res.render('pokedex', {
-            pokemon: pokemonList
+            pokemon: pokemonList,
+            util_filter: filter // Passes filter functions from utilities/filter.js
         })
     });
 });
