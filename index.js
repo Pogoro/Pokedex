@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/', function(req, res){
     res.render('home');
 });
-app.get('/pokedex', async function(req, res){
+app.get('/pokedex', function(req, res){
     var pokemonList = [];
     cache.downloadCache().then(poke => {
         pokemonList = poke;
