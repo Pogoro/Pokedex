@@ -1,5 +1,5 @@
 const { Client } = require('pg');
-const requests = require('./requests.js')
+const requests = require('./requests.js');
 /*
     This is a utility module for caching and querying the postgres database.
 */
