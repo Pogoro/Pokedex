@@ -4,8 +4,8 @@ const axios = require('axios');
 const rax = require('retry-axios');
 var fetch = require('node-fetch');
 var nodemailer = require('nodemailer');
-//Modules
-var cache = require('./utilities/cache.js');
+//Modules - enable cache in production
+//var cache = require('./utilities/cache.js');
 var requests = require('./utilities/requests.js');
 var filter = require('./utilities/filter.js');
 //Config
@@ -22,13 +22,23 @@ app.use(express.static("public"));
 //tell app to use Body parser
 app.use(bodyParser.urlencoded({ extended: true }));
 
-cache.updateCache();
+// Use in production
+//cache.updateCache();
 
 // Page routes
 app.get('/', function(req, res){
     res.render('home');
 });
 app.get('/pokedex', function(req, res){
+    // BELOW IS FOR TESTING - Take this out in production
+    const fs = require('fs');
+    let data = fs.readFileSync('./utilities/_pokemon_localtest.json');
+    let pokemonList = JSON.parse(data);
+    res.render('pokedex', {
+        pokemon: pokemonList,
+        util_filter: filter // Passes filter functions from utilities/filter.js
+    })
+    /* production code:
     var pokemonList = [];
     cache.downloadCache().then(poke => {
         pokemonList = poke;
@@ -37,6 +47,7 @@ app.get('/pokedex', function(req, res){
             util_filter: filter // Passes filter functions from utilities/filter.js
         })
     });
+    */
 });
 app.get('/battle', function(req, res){
     res.render('battle');
