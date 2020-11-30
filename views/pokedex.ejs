@@ -14,6 +14,59 @@
   </head>
   <body>
     <%- include('partials/header') %>
+    <div class="search-bar">
+      <form name="searchbar">
+        <input type="text" name="search">
+      </form>
+    </div>
+    <p>
+      Use advanced search to search by type, weakness, size, and more!
+    </p>
+    <div class="advanced-search">
+      <form name="advancedsearch">
+        <div class="type-filters">
+          <div class="col-1">
+            <input type="checkbox" id="type-normal" name="type-normal" value="normal">
+            <label for="type-normal">Normal</label><br>
+            <input type="checkbox" id="type-water" name="type-water" value="water">
+            <label for="type-normal">Water</label><br>
+            <input type="checkbox" id="type-fire" name="type-fire" value="fire">
+            <label for="type-normal">Fire</label><br>
+            <input type="checkbox" id="type-grass" name="type-grass" value="grass">
+            <label for="type-normal">Grass</label><br>
+            <input type="checkbox" id="type-electric" name="type-electric" value="electric">
+            <label for="type-normal">Electric</label><br>
+            <input type="checkbox" id="type-fighting" name="type-fighting" value="fighting">
+            <label for="type-normal">Fighting</label><br>
+            <input type="checkbox" id="type-flying" name="type-flying" value="flying">
+            <label for="type-normal">Flying</label><br>
+            <input type="checkbox" id="type-rock" name="type-rock" value="rock">
+            <label for="type-normal">Rock</label><br>
+          </div>
+          <div class="col-2">
+            <input type="checkbox" id="type-bug" name="type-bug" value="bug">
+            <label for="type-normal">Bug</label><br>
+            <input type="checkbox" id="type-poison" name="type-poison" value="poison">
+            <label for="type-normal">Poison</label><br>
+            <input type="checkbox" id="type-steel" name="type-steel" value="steel">
+            <label for="type-normal">Steel</label><br>
+            <input type="checkbox" id="type-ground" name="type-ground" value="ground">
+            <label for="type-normal">Ground</label><br>
+            <input type="checkbox" id="type-ice" name="type-ice" value="ice">
+            <label for="type-normal">Ice</label><br>
+            <input type="checkbox" id="type-psychic" name="type-psychic" value="psychic">
+            <label for="type-normal">Psychic</label><br>
+            <input type="checkbox" id="type-ghost" name="type-ghost" value="ghost">
+            <label for="type-normal">Ghost</label><br>
+            <input type="checkbox" id="type-fairy" name="type-fairy" value="fairy">
+            <label for="type-normal">Fairy</label><br>
+          </div>
+        </div>
+        <div class="height-filter">
+
+        </div>
+      </form>
+    </div>
     <!-- Body -->
     <ul>
       <% pokemon.forEach( pokemon => { %>
