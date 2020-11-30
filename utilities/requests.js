@@ -74,7 +74,21 @@ async function getAllPokemon(step=25){
     });
 }
 
+async function getRandomPokemon() {
+    return new Promise( async function(resolve, reject) {
+        let pokemon = [];
+        axios.get(`https://pokeapi.co/api/v2/pokemon/${Math.random() * 100}`)
+        .then(result => {
+            resolve(result.results)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    })
+}
+
 // Exports
 exports.Pokemon = Pokemon;
 exports.getPage = getPage;
 exports.getAllPokemon = getAllPokemon;
+exports.getRandomPokemon = getRandomPokemon;

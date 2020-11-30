@@ -50,6 +50,15 @@ app.get('/contact', function(req, res){
      res.render('contact');
 });
 
+
+app.get('/random', async function(req, res) {
+    let random = await requests.getRandomPokemon();
+
+    res.render('random', {
+        pokemon: random
+    })
+})
+
 // Contact POST
 app.post('/contact', function(req, res){
     console.log(req.body.name);
