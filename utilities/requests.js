@@ -76,10 +76,20 @@ async function getAllPokemon(step=25){
 
 async function getRandomPokemon() {
     return new Promise( async function(resolve, reject) {
-        let pokemon = [];
-        axios.get(`https://pokeapi.co/api/v2/pokemon/${Math.random() * 100}`)
+        let getRandom = (max=840) => {
+            return Math.floor(Math.random() * Math.floor(max));
+        };
+        axios.get(`https://pokeapi.co/api/v2/pokemon/${getRandom()}`)
         .then(result => {
-            resolve(result.results)
+            resolve(new Pokemon(
+                result.data.id,
+                result.data.name,
+                result.data.types,
+                result.data.weight,
+                result.data.height,
+                result.data.sprites.front_default,
+                result.data.moves
+            ));
         })
         .catch(err => {
             console.log(err)

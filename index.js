@@ -5,7 +5,7 @@ const rax = require('retry-axios');
 var fetch = require('node-fetch');
 var nodemailer = require('nodemailer');
 //Modules
-var cache = require('./utilities/cache.js');
+//var cache = require('./utilities/cache.js');
 var requests = require('./utilities/requests.js');
 var filter = require('./utilities/filter.js');
 //Config
@@ -43,21 +43,16 @@ app.get('/pokedex', async function(req, res){
         console.error(e);
     }
 });
-app.get('/battle', function(req, res){
-    res.render('battle');
+app.get('/battle', async function(req, res){
+    requests.getRandomPokemon().then(poke => {
+        res.render('battle', {
+            pokemon: poke
+        });
+    });
 });
 app.get('/contact', function(req, res){
      res.render('contact');
 });
-
-
-app.get('/random', async function(req, res) {
-    let random = await requests.getRandomPokemon();
-
-    res.render('random', {
-        pokemon: random
-    })
-})
 
 // Contact POST
 app.post('/contact', function(req, res){
