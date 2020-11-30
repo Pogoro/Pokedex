@@ -30,12 +30,12 @@ app.get('/', function(req, res){
 });
 app.get('/pokedex', async function(req, res){
     try{
-        //const pokemonList = await getPokedex();
+        const pokemonList = await requests.getAllPokemon();
         // This API call is to get the names of the pokemon
         //console.log(pokemonList)
-        pokemonList.forEach(element => {
+        /*pokemonList.forEach(element => {
             console.log(element.name)
-        });
+        });*/
         res.render('pokedex', {
             pokemon: pokemonList
         });
