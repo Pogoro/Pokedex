@@ -1,4 +1,4 @@
-# Pokidex
+# Pokedex
 
 * Ethan Dillinger
 * Jalen Gilyard
