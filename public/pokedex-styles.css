@@ -1,11 +1,11 @@
 body{
-    
+    background-color: #FFFFCC;
 }
 
 .advanced-search {
     width: 500px;
     margin: auto;
-    background-color: #FFFFCC;
+    
 }
 
 #logo img { 
@@ -20,6 +20,7 @@ body{
 .type-filters{
     display: table;
 }
+
 .col-1{
     float: left;
     width: 50%;
@@ -27,4 +28,14 @@ body{
 
 .col-2{
     float: right;
+    width: 50%;
+}
+
+@media screen and (max-width: 600px) {
+  .col-1 {
+    width: 100%;
+  }
+  .col-2 {
+    width: 100%;
+  }
 }
