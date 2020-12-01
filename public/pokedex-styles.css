@@ -1,6 +1,7 @@
 body{
     max-width: 500px;
     margin: auto;
+    background-color: #FFFFCC;
 }
 
 #logo img { 
@@ -15,9 +16,14 @@ body{
     background: #FFFFCC;
 }
 
-.result {
-    color: blue;
+.type-filters{
+    display: table;
+}
+.col-1{
+    float: left;
+    width: 50%;
 }
 
-
-
+.col-2{
+    float: right;
+}
