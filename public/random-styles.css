@@ -1,0 +1,49 @@
+.container {
+  font-family: "Helvetica";
+  max-width: 1000px;
+}
+
+.container > .pokemon-container > .whos-that-pokemon {
+  width: 100%;
+}
+
+.container > .pokemon-container > .pokemon-image {
+  position: absolute;
+  filter: brightness(0);
+  left: -5px;
+  top: -10px;
+  transition: 0.3s;
+}
+
+.container > .guess-form {
+  margin-top: 1px;
+  display: flex;
+}
+
+.container > .guess-form > .guess-value {
+  border: 1px solid #222;
+  font-size: 16px;
+  flex: 1.5;
+  margin-right: 5px;
+  padding: 15px 10px;
+}
+
+.container > .guess-form > .guess-submit {
+  flex: 1;
+  cursor: pointer;
+  border: 1px solid #222;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #222;
+  color: #222;
+  background-color: white;
+  transition: all 0.1s;
+}
+
+.container > .guess-form > .guess-submit:hover {
+  border: 1px solid black;
+  color: white;
+  background-color: red;
+}
