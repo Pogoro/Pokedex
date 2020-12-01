@@ -9,7 +9,7 @@
     <link href="styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="dropdown_styles.css" rel="stylesheet" />
-    <link href="pokedex_styles.css" rel="stylesheet" />
+    <link href="pokedex-styles.css" rel="stylesheet" />
 
     <title>Pokémon Database</title>
   </head>
@@ -67,7 +67,7 @@
           <label for="height-tall">Tall</label><br>
         </div>
         <div class="searchbox">
-          <input class="search-txt" type="text" name="" placeholder="Type to search" autocomplete="off">
+          <input class="search-txt" type="text" name="" placeholder="Search for a pokémon" autocomplete="off">
           <a class="search-btn" href="#"><i class="fas fa-search"></i></a>
         </div>
         <button id="searchButton">Submit</button>
@@ -78,8 +78,6 @@
 
     </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -166,7 +164,13 @@
       pokemonList.forEach(pokemon => {
           $(".result-bar").append(`
             <div class="result">
-                <p>${pokemon.name}</p>
+                <div class="id">${pokemon.id}</div>
+                <div class="name">${pokemon.name}</div>
+                <div class="type">${pokemon.type}</div>
+                <div class="height">${pokemon.height}</div>
+                <div class="weight">${pokemon.weight}</div>
+                <div class="image">${pokemon.image}</div>
+                <div class="moves">${pokemon.moves}</div>
             </div>
           `)
       });
