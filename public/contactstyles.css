@@ -1,6 +1,7 @@
 /*Contact Styles*/
 @font-face {font-family: 'pkmn'; 
 src: url('fonts/PKMN RBYGSC.ttf')format('truetype');}
+
 body {
     margin: 0; 
     padding: 0;
