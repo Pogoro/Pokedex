@@ -49,8 +49,8 @@ app.get('/pokedex', function(req, res){
     });
     */
 });
-app.get('/battle', function(req, res){
-    res.render('battle');
+app.get('/random', function(req, res){
+    res.render('random');
 });
 app.get('/contact', function(req, res){
      res.render('contact');
