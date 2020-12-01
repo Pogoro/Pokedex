@@ -1,18 +1,19 @@
 body{
-    max-width: 500px;
+    
+}
+
+.advanced-search {
+    width: 500px;
     margin: auto;
 }
 
 #logo img { 
     width:35%;
     display: block;
-    float: right;
-}
-
-.searchbox{
-    display: inline-block;
-    text-align: center;
-    background: #FFFFCC;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 30px;
+    padding-right: 40px;
 }
 
 .result {
