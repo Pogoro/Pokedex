@@ -15,10 +15,8 @@
     <%- include('partials/header') %>
 
     <div class="container">
-        <div class="pokemon-container">
             <img src="images/whos_that.png" class="whos-that-pokemon">
             <img src="" alt="" class="pokemon-image" width="300" height="300">
-        </div>
         <div class="guess-form">
             <input class="guess-value" type="text" placeholder="Who's That Pokémon?">
             <div class="guess-submit">Name that Pokémon!</div>
@@ -72,7 +70,7 @@
         let i = 1;
         while (i < 5) {
             let timer = 75 * i,
-                leftVal = timer % 2 ? "5px" : "-5px";
+                leftVal = timer % 2 ? "200px" : "100px";
 
             setTimeout(() => {
                 pokeImage.style.left = leftVal;
