@@ -1,11 +1,9 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
     <link href="styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="dropdown_styles.css" rel="stylesheet" />
@@ -16,14 +14,75 @@
   <body>
     <%- include('partials/header') %>
 
+    <div class="container">
+            <img src="images/whos_that.png" class="whos-that-pokemon">
+            <img src="" alt="" class="pokemon-image" width="300" height="300">
+        <div class="guess-form">
+            <input class="guess-value" type="text" placeholder="Who's That Pokémon?">
+            <div class="guess-submit">Name that Pokémon!</div>
+        </div>
+        <a href="#" class="refresh-page">New Pokémon</a>
+    </div>
 
-<!--  CHECK THE CONSOLE FOR ANSWERS -->
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
+    
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <script>
+    const guessValue = document.querySelector(".guess-value"),
+	guessSubmit = document.querySelector(".guess-submit"),
+	pokeImage = document.querySelector(".pokemon-image");
+
+    let answer,
+        data = null,
+        xhr = new XMLHttpRequest();
+
+    xhr.addEventListener("readystatechange", function() {
+        if (this.readyState === 4) {
+            data = JSON.parse(this.responseText);
+            answer = data["forms"][0]["name"];
+            pokeImage.setAttribute("src", data["sprites"]["front_default"]);
+        }
+    });
+    xhr.open("GET", `https://pokeapi.co/api/v2/pokemon/${getRandomInt(1, 893)}/`);
+    xhr.send(data);
+
+    guessValue.addEventListener("keyup", e => {
+        if (e.keyCode == 13) checkPokemon();
+    });
+    guessSubmit.addEventListener("click", checkPokemon);
+
+    function checkPokemon() {
+        var guess = guessValue.value.toLowerCase();
+        console.info(answer, guess);
+        if (answer === guess) {
+            pokeImage.style.filter = "none";
+        } else {
+            shakePokemon();
+        }
+    }
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    function shakePokemon() {
+        let i = 1;
+        while (i < 5) {
+            let timer = 75 * i,
+                leftVal = timer % 2 ? "200px" : "100px";
+
+            setTimeout(() => {
+                pokeImage.style.left = leftVal;
+            }, timer);
+            i++;
+        }
+    }
+    document.querySelector('.refresh-page').onclick = function () {
+        location.reload();
+    }
+  </script>
+
   </body>
 
 </html>

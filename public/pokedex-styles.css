@@ -1,0 +1,24 @@
+body{
+    background: #F7F7F7;
+}
+
+#logo img { 
+    width:35%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 30px;
+    padding-right: 40px;
+}
+
+
+.searchbox{
+    display: inline-block;
+    text-align: center;
+    background: #FFFFCC;
+}
+
+
+
+
+
