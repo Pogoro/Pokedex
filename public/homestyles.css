@@ -12,6 +12,7 @@ body {
 
 #navigation {
     position: relative;
+    letter-spacing: 1.5px;
     top: 380px;
     font-size: 24px;
     font-family: "poke", sans-serif;
