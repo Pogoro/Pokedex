@@ -2,6 +2,38 @@
     This is a utility module for implementing filtering functions of the pokemon list.
 */
 
+const cache = require('./cache.js');
+
+/*
+    Master filter function. Returns an array of pokemon filtered by given parameters.
+    Example usage:
+
+    filter(pokemon, {
+        types: ['fire', 'flying'],
+        name: 'charizard',
+        weight: [500, 1000],
+        height: [10, 20]
+    });
+*/
+
+function filterPokemon(pokemon, params){
+    let filtered = pokemon;
+    if(!pokemon) throw 'Pokemon list is empty.';
+    if(params.types){
+        filtered = filterByType(filtered, params.types);
+    }
+    if(params.name){
+        filtered = filterByName(filtered, params.name);
+    }
+    if(params.weight){
+        filtered = filterByWeight(filtered, params.weight[0], params.weight[1]);
+    }
+    if(params.height){
+        filtered = filterByHeight(filtered, params.height[0], params.height[1]);
+    }
+    return filtered;
+}
+
 // Given a list of pokemon and an array of filter strings, return an array filtered by type given an array of type strings.
 /* Example usage:
 cache.downloadCache().then(res => {
@@ -51,3 +83,4 @@ exports.filterByType = filterByType;
 exports.filterByName = filterByName;
 exports.filterByWeight = filterByWeight;
 exports.filterByHeight = filterByHeight;
+exports.filterPokemon = filterPokemon;
