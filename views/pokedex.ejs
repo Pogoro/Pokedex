@@ -11,10 +11,13 @@
     <link href="dropdown_styles.css" rel="stylesheet" />
     <link href="pokedex_styles.css" rel="stylesheet" />
 
-    <title>Pokemon Database</title>
+    <title>Pokémon Database</title>
   </head>
   <body>
     <%- include('partials/header') %>
+    <div id="logo">
+        <img src="images/pokedex_logo.png" alt="pokedex logo" />
+    </div>
     <div class="search-bar">
       <form name="searchbar">
         <input type="text" name="search">
@@ -86,11 +89,17 @@
 
     </div>
 
-
-    <% pokemon.forEach( pokemon => { %>
-        <p><%= pokemon.name %></p>
-    <% }) %>
-
+    <div class="poke-card">
+        <% pokemon.forEach( pokemon => { %>
+            <div class="id"><%= pokemon.id %></div>
+            <div class="name"><%= pokemon.name %></div>
+            <div class="image"><%= pokemon.image %></div>
+            <div class="type"><%= pokemon.type %></div>
+            <div class="moves"><%= pokemon.moves %></div>
+            <div class="height"><%= pokemon.height %></div>
+            <div class="weight"><%= pokemon.weight %></div>
+        <% }) %>
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
