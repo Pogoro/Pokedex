@@ -1,5 +1,11 @@
+@font-face {font-family: 'poke'; 
+src: url('fonts/Pokemon_Solid.ttf')format('truetype');}
+
 .container {
-  font-family: "Helvetica";
+  font-family: "poke", sans-serif;
+  letter-spacing: 2px;
+  color: #FFCB05;
+  text-shadow: 2px 2px #2D70B7;
   max-width: 1000px;
 }
 
@@ -36,14 +42,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #222;
-  color: #222;
+  color: #FFCB05;
+  text-shadow: 2px 2px #2D70B7;
   background-color: white;
   transition: all 0.1s;
 }
 
 .container > .guess-form > .guess-submit:hover {
   border: 1px solid black;
-  color: white;
+  color: yellow;
+  text-shadow: 2px 2px #2D70B7;
   background-color: red;
 }
