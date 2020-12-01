@@ -27,75 +27,185 @@
       <form name="advancedsearch">
         <div class="type-filters">
           <div class="col-1">
-            <input type="checkbox" id="type-normal" name="type-normal" value="normal">
-            <label for="type-normal">Normal</label><br>
-            <input type="checkbox" id="type-water" name="type-water" value="water">
-            <label for="type-normal">Water</label><br>
-            <input type="checkbox" id="type-fire" name="type-fire" value="fire">
-            <label for="type-normal">Fire</label><br>
-            <input type="checkbox" id="type-grass" name="type-grass" value="grass">
-            <label for="type-normal">Grass</label><br>
-            <input type="checkbox" id="type-electric" name="type-electric" value="electric">
-            <label for="type-normal">Electric</label><br>
-            <input type="checkbox" id="type-fighting" name="type-fighting" value="fighting">
-            <label for="type-normal">Fighting</label><br>
-            <input type="checkbox" id="type-flying" name="type-flying" value="flying">
-            <label for="type-normal">Flying</label><br>
-            <input type="checkbox" id="type-rock" name="type-rock" value="rock">
-            <label for="type-normal">Rock</label><br>
+            <% types[0].forEach(type => { %>
+              <div class="type-checkbox">
+                <input type="checkbox" id="<%="type-"+type%>" name="<%="type-"+type%>" value="<%=type%>" autocomplete="off">
+                <label for="<%="type-"+type%>"><%= type.charAt(0).toUpperCase() + type.slice(1) %></label><br>
+              </div>
+            <%})%> 
           </div>
           <div class="col-2">
-            <input type="checkbox" id="type-bug" name="type-bug" value="bug">
-            <label for="type-normal">Bug</label><br>
-            <input type="checkbox" id="type-poison" name="type-poison" value="poison">
-            <label for="type-normal">Poison</label><br>
-            <input type="checkbox" id="type-steel" name="type-steel" value="steel">
-            <label for="type-normal">Steel</label><br>
-            <input type="checkbox" id="type-ground" name="type-ground" value="ground">
-            <label for="type-normal">Ground</label><br>
-            <input type="checkbox" id="type-ice" name="type-ice" value="ice">
-            <label for="type-normal">Ice</label><br>
-            <input type="checkbox" id="type-psychic" name="type-psychic" value="psychic">
-            <label for="type-normal">Psychic</label><br>
-            <input type="checkbox" id="type-ghost" name="type-ghost" value="ghost">
-            <label for="type-normal">Ghost</label><br>
-            <input type="checkbox" id="type-fairy" name="type-fairy" value="fairy">
-            <label for="type-normal">Fairy</label><br>
+            <% types[1].forEach(type => { %>
+              <div class="type-checkbox">
+                <input type="checkbox" id="<%="type-"+type%>" name="<%="type-"+type%>" value="<%=type%>" autocomplete="off">
+                <label for="<%="type-"+type%>"><%= type.charAt(0).toUpperCase() + type.slice(1) %></label><br>
+              </div>
+            <%})%> 
           </div>
         </div>
-        <div class="height-filter">
-
+        <div class="weight">
+          <input type="radio" id="weight-none" name="weight" value="" autocomplete="off">
+          <label for="weight-none">None</label><br>
+          <input type="radio" id="weight-small" name="weight" value="small" autocomplete="off">
+          <label for="weight-small">Small</label><br>
+          <input type="radio" id="weight-medium" name="weight" value="medium" autocomplete="off">
+          <label for="weight-medium">Medium</label><br>
+          <input type="radio" id="weight-large" name="weight" value="large" autocomplete="off">
+          <label for="weight-large">Large</label><br>
         </div>
+        <div class="height">
+          <input type="radio" id="height-none" name="height" value="" autocomplete="off">
+          <label for="height-none">None</label><br>
+          <input type="radio" id="height-short" name="height" value="short" autocomplete="off">
+          <label for="height-short">Short</label><br>
+          <input type="radio" id="height-medium" name="height" value="medium" autocomplete="off">
+          <label for="height-medium">Medium</label><br>
+          <input type="radio" id="height-tall" name="height" value="tall" autocomplete="off">
+          <label for="height-tall">Tall</label><br>
+        </div>
+        <div class="searchbox">
+          <input class="search-txt" type="text" name="" placeholder="Type to search" autocomplete="off">
+          <a class="search-btn" href="#"><i class="fas fa-search"></i></a>
+        </div>
+        <button id="searchButton">Submit</button>
       </form>
     </div>
-    <!-- Body -->
-
-
-    <div class="searchbox">
-        <input class="search-txt" type="text" name="" placeholder="Type to search">
-        <a class="search-btn" href="#">
-        <i class="fas fa-search"></i>
-    </div>
-
-    <div class="advanced-search">
-        <div class="types"></div>
-        <div class="height"></div>
-        <div class="weight"></div>
-    </div>
+    
     <div class="result-bar">
 
     </div>
-
-
-    <% pokemon.forEach( pokemon => { %>
-        <p><%= pokemon.name %></p>
-    <% }) %>
-
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/86cacd20a9.js" crossorigin="anonymous"></script>
+    <!-- Below contains filter functions -->
+    <script>
+            /*
+          Master filter function. Returns an array of pokemon filtered by given parameters.
+          Example usage:
+
+          filter(pokemon, {
+              types: ['fire', 'flying'],
+              name: 'charizard',
+              weight: [500, 1000],
+              height: [10, 20]
+          });
+      */
+
+      function filterPokemon(pokemon, params){
+          let filtered = pokemon;
+          if(!pokemon) throw 'Pokemon list is empty.';
+          if(params.types){
+              filtered = filterByType(filtered, params.types);
+          }
+          if(params.name){
+              filtered = filterByName(filtered, params.name);
+          }
+          if(params.weight){
+              filtered = filterByWeight(filtered, params.weight[0], params.weight[1]);
+          }
+          if(params.height){
+              filtered = filterByHeight(filtered, params.height[0], params.height[1]);
+          }
+          return filtered;
+      }
+
+      // Given a list of pokemon and an array of filter strings, return an array filtered by type given an array of type strings.
+      /* Example usage:
+      cache.downloadCache().then(res => {
+          console.log(filter.filterByType(res, ['flying', 'fire']));
+      });
+      */
+      function filterByType(pokemon, typeFilter){
+          let types = ['normal', 'water', 'fire', 'grass', 'electric', 'fighting', 'flying', 'rock', 'bug',
+                      'poison', 'steel', 'ground', 'ice', 'psychic', 'ghost', 'fairy'];
+          let check = (pokeTypes) => typeFilter.map(item => item.toLowerCase()).every(type => {
+              return pokeTypes.includes(type);
+          });
+          if(!check(types)){
+              throw 'Given types does not match available types.';
+          }
+          return pokemon.filter(poke => {
+              let types = [];
+              poke.type.forEach(pType => {
+                  types.push(pType.type.name);
+              });
+              return check(types);
+          });
+      }
+      // Given a list of pokemon, return an array of pokemon whose name match a given substring
+      function filterByName(pokemon, nameString){
+          return pokemon.filter(poke => poke.name.includes(nameString.toLowerCase()));
+      }
+      // Given a list of pokemon, return an array of pokemon whose weight resides in a specific range
+      function filterByWeight(pokemon, startWeight, endWeight){
+          return pokemon.filter(poke => {
+              if(poke.weight >= startWeight && poke.weight <= endWeight){
+                  return true;
+              }else return false;
+          });
+      }
+      // Given a list of pokemon, return an array of pokemon whose height resides in a specific range
+      function filterByHeight(pokemon, startHeight, endHeight){
+          return pokemon.filter(poke => {
+              if(poke.height >= startHeight && poke.height <= endHeight){
+                  return true;
+              }else return false;
+          });
+      }
+    </script>
+    <!-- Clientside scripts -->
+    <script>
+      let pokemonList = <%- pokemon %>;
+      pokemonList.forEach(pokemon => {
+          $(".result-bar").append(`
+            <div class="result">
+                <p>${pokemon.name}</p>
+            </div>
+          `)
+      });
+
+      $("#searchButton").click(e => {
+        e.preventDefault();
+        let checkedTypes = [];
+        // Read the value of every checked type checkbox
+        $(".type-checkbox input:checked").each((ind, box) => {
+          checkedTypes.push(box.value);
+        });
+        // Read the value of the searchbox
+        let searchName = $(".searchbox input").val();
+        // Read the value of the weight selection
+        let weight = $(".weight input:checked").val();
+        let filteredWeight;
+        if(weight == 'small') filteredWeight = [0, 970]
+        else if (weight == 'medium') filteredWeight = [971, 2300]
+        else if (weight == 'large') filteredWeight = [2301, 99999];
+        // Read the value of the height selection
+        let height = $(".height input:checked").val();
+        let filteredHeight;
+        if(height == 'short') filteredHeight = [0, 15];
+        else if (height == 'medium') filteredHeight = [16, 69]
+        else if (height == 'tall') filteredHeight = [70,200];
+        // First, we clear the results
+        $(".result-bar").empty();
+        // We then apply a filter to the pokemon and update the results.
+        let filteredPokemon = filterPokemon(pokemonList, {
+          types: checkedTypes,
+          name: searchName,
+          weight: filteredWeight,
+          height: filteredHeight
+        });
+        filteredPokemon.forEach(pokemon => {
+          $(".result-bar").append(`
+            <div class="result">
+                <p>${pokemon.name}</p>
+            </div>
+          `)
+        });
+      });
+    </script>
   </body>
 </html>

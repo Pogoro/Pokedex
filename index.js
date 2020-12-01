@@ -35,7 +35,9 @@ app.get('/pokedex', function(req, res){
     let data = fs.readFileSync('./utilities/_pokemon_localtest.json');
     let pokemonList = JSON.parse(data);
     res.render('pokedex', {
-        pokemon: pokemonList,
+        pokemon: JSON.stringify(pokemonList),
+        types: types = [['normal', 'water', 'fire', 'grass', 'electric', 'fighting', 'flying', 'rock'],
+                        ['bug', 'poison', 'steel', 'ground', 'ice', 'psychic', 'ghost', 'fairy']],
         util_filter: filter // Passes filter functions from utilities/filter.js
     })
     /* production code:
