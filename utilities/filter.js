@@ -2,8 +2,6 @@
     This is a utility module for implementing filtering functions of the pokemon list.
 */
 
-const cache = require('./cache.js');
-
 /*
     Master filter function. Returns an array of pokemon filtered by given parameters.
     Example usage:
