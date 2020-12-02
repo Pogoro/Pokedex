@@ -14,21 +14,21 @@ p {
     margin-top: -10px;
 }
 
+.dropdown2 {
+    position: relative;
+    margin: auto;
+    text-align: center;
+    width: 50%;
+}
 .dropbtn2 {
     background: transparent;
-    padding: 16px;
-    font-size: 30px;
-    border: none;
     cursor: pointer;
     min-width: 160px;
     border-radius: 25px;
+    
 }
 .dropbtn2:hover, .dropbtn:focus {
     background-color: red;
-}
-.dropdown2 {
-    position: relative;
-    display: inline-block;
 }
 .dropdown-content2 {
     display: none;
@@ -39,32 +39,12 @@ p {
 .show {
     display: block;
 }
-.dropdown2:before {
-    content: "";
-    position: absolute;
-    right: 10px;
-    bottom: 8px;
-    width: 0; 
-    height: 0; 
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 10px solid black;
-}
 
 .type-filters{
     display: inline-table;
 }
-.col-1{
+.col-1, .col-2, .col-3 {
     float: left;
-    width: 33.33%;
-}
-.col-2{
-    float: right;
-    width: 33.33%;
-}
-.col-3
-{
-    float: right;
     width: 33.33%;
 }
 .type-checkbox{
