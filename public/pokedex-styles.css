@@ -18,6 +18,10 @@ h2{
     margin-top: -10px;
 }
 
+h1 {
+    font-size: 20px;
+}
+
 .dropdown2 {
     position: relative;
     margin: auto;
@@ -26,12 +30,16 @@ h2{
 }
 .dropbtn2 {
     background: transparent;
+    color: black;
     cursor: pointer;
     min-width: 160px;
     border-radius: 25px;
     padding-left: 10px;
     padding-right: 10px;
+<<<<<<< HEAD
     
+=======
+>>>>>>> 40fc595345f98782672469cbd4482fc87ac1b909
 }
 .dropbtn2:hover, .dropbtn:focus {
     background-color: red;
@@ -110,10 +118,20 @@ h2{
     text-align: center;
     margin: auto;
     margin-top: 20px;
+    width: 600px;
 }
 .searchButton {
-    margin-left: 20px;
+    border-radius: 25px;
+    background: transparent;
+    color: black;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 10px;
+}
+.searchButton:hover {
+    background: red;
 }
 .search-txt {
-    min-width: 200px;
+    width: 50%;
+    margin: auto;
 }
