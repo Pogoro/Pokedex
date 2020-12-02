@@ -43,7 +43,7 @@ body{
 .show {
     display: block;
 }
-.dropdown2:before {
+.dropbtn2:before {
     content: "";
     position: absolute;
     right: 10px;
