@@ -35,7 +35,7 @@
                 <form name="advancedsearch">
                     <div class="type-filters">
                         <div class="col-1">
-                        <h1>Types and Weaknesses</h1>
+                        <h2>Types and Weaknesses</h2>
                             <% types[0].forEach(type => { %>
                             <span class="type-checkbox">
                                 <input type="checkbox" id="<%="type-"+type%>" name="<%="type-"+type%>" value="<%=type%>" autocomplete="off">
@@ -62,7 +62,7 @@
                     </div>
                     <div class="weight-height">
                         <div class="weight">
-                            <h2>Weight</h2>
+                            <h3>Weight</h3>
                             <ul>
                                 <li><input type="radio" id="weight-none" name="weight" value="" autocomplete="off">
                                     <label for="weight-none">None</label><br></li>
@@ -102,6 +102,28 @@
         
         </div> 
     -->  
+    <script>
+        $('ul.dropdown-content2').on('click', function(event){
+            var events = $._data(document, 'events') || {};
+            events = events.click || [];
+            for(var i = 0; i < events.length; i++) {
+                if(events[i].selector) {
+
+                    //Check if the clicked element matches the event selector
+                    if($(event.target).is(events[i].selector)) {
+                        events[i].handler.call(event.target, event);
+                    }
+
+                    // Check if any of the clicked element parents matches the 
+                    // delegated event selector (Emulating propagation)
+                    $(event.target).parents(events[i].selector).each(function(){
+                        events[i].handler.call(this, event);
+                    });
+                }
+            }
+            event.stopPropagation(); //Always stop propagation
+        });
+    </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

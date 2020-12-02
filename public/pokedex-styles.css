@@ -7,7 +7,9 @@ body{
     margin-top: 20px;
     margin-bottom: 10px;
 }
-
+h2{
+    size: 20px;
+}
 #logo img { 
     width:35%;
     display: block;
@@ -34,6 +36,10 @@ h1 {
     border-radius: 25px;
     padding-left: 10px;
     padding-right: 10px;
+<<<<<<< HEAD
+    
+=======
+>>>>>>> 40fc595345f98782672469cbd4482fc87ac1b909
 }
 .dropbtn2:hover, .dropbtn:focus {
     background-color: red;
