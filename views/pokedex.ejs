@@ -18,70 +18,90 @@
     <div id="logo">
         <img src="images/pokedex_logo.png" alt="pokedex logo" />
     </div>
-    <div class="advanced-search">
-        <p>
-            Use advanced search to search by type, weakness, size, and more!
-        </p>
-      <form name="advancedsearch">
-        <div class="type-filters">
-          <div class="col-1">
-            <% types[0].forEach(type => { %>
-              <span class="type-checkbox">
-                <input type="checkbox" id="<%="type-"+type%>" name="<%="type-"+type%>" value="<%=type%>" autocomplete="off">
-                <label for="<%="type-"+type%>"><%= type.charAt(0).toUpperCase() + type.slice(1) %></label><br>
-              </span>
-            <%})%> 
-          </div>
-          <div class="col-2">
-            <% types[1].forEach(type => { %>
-              <span class="type-checkbox">
-                <input type="checkbox" id="<%="type-"+type%>" name="<%="type-"+type%>" value="<%=type%>" autocomplete="off">
-                <label for="<%="type-"+type%>"><%= type.charAt(0).toUpperCase() + type.slice(1) %></label><br>
-              </span>
-            <%})%> 
-          </div>
-          <div class="col-3">
-            <% types[2].forEach(type => { %>
-              <span class="type-checkbox">
-                <input type="checkbox" id="<%="type-"+type%>" name="<%="type-"+type%>" value="<%=type%>" autocomplete="off">
-                <label for="<%="type-"+type%>"><%= type.charAt(0).toUpperCase() + type.slice(1) %></label><br>
-              </span>
-            <%})%> 
-          </div>
-        </div>
-        <div class="weight">
-          <input type="radio" id="weight-none" name="weight" value="" autocomplete="off">
-          <label for="weight-none">None</label><br>
-          <input type="radio" id="weight-small" name="weight" value="small" autocomplete="off">
-          <label for="weight-small">Small</label><br>
-          <input type="radio" id="weight-medium" name="weight" value="medium" autocomplete="off">
-          <label for="weight-medium">Medium</label><br>
-          <input type="radio" id="weight-large" name="weight" value="large" autocomplete="off">
-          <label for="weight-large">Large</label><br>
-        </div>
-        <div class="height">
-            <input type="radio" id="height-none" name="height" value="" autocomplete="off">
-            <label for="height-none">None</label><br>
-            <input type="radio" id="height-short" name="height" value="short" autocomplete="off">
-            <label for="height-short">Short</label><br>
-            <input type="radio" id="height-medium" name="height" value="medium" autocomplete="off">
-            <label for="height-medium">Medium</label><br>
-            <input type="radio" id="height-tall" name="height" value="tall" autocomplete="off">
-            <label for="height-tall">Tall</label><br>
 
-            <div class="searchbox">
-                <input class="search-txt" type="text" name="" placeholder="Search for a pokémon" autocomplete="off">
-                <button id="searchButton">Submit</button>
+    <div class="searchbox">
+        <input class="search-txt" type="text" name="" placeholder="Search for a pokémon" autocomplete="off">
+        <button id="searchButton">Submit</button>
+    </div>
+
+    <p class = "description">
+        Use advanced search to search by type, weakness, size, and more!
+    </p>
+
+    <div class="dropdown2">
+        <button onclick="myFunction2()" class="dropbtn2">Advanced Search</button>
+        <div id="myDropdown2" class="dropdown-content2">
+            <div class="advanced-search">
+                <form name="advancedsearch">
+                    <div class="type-filters">
+                        <div class="col-1">
+                        <h1>Types and Weaknesses</h1>
+                            <% types[0].forEach(type => { %>
+                            <span class="type-checkbox">
+                                <input type="checkbox" id="<%="type-"+type%>" name="<%="type-"+type%>" value="<%=type%>" autocomplete="off">
+                                <label for="<%="type-"+type%>"><%= type.charAt(0).toUpperCase() + type.slice(1) %></label><br>
+                            </span>
+                            <%})%> 
+                        </div>
+                        <div class="col-2">
+                            <% types[1].forEach(type => { %>
+                            <span class="type-checkbox">
+                                <input type="checkbox" id="<%="type-"+type%>" name="<%="type-"+type%>" value="<%=type%>" autocomplete="off">
+                                <label for="<%="type-"+type%>"><%= type.charAt(0).toUpperCase() + type.slice(1) %></label><br>
+                            </span>
+                            <%})%> 
+                        </div>
+                        <div class="col-3">
+                            <% types[2].forEach(type => { %>
+                            <span class="type-checkbox">
+                                <input type="checkbox" id="<%="type-"+type%>" name="<%="type-"+type%>" value="<%=type%>" autocomplete="off">
+                                <label for="<%="type-"+type%>"><%= type.charAt(0).toUpperCase() + type.slice(1) %></label><br>
+                            </span>
+                            <%})%> 
+                        </div>
+                    </div>
+                    <div class="weight-height">
+                        <div class="weight">
+                            <h2>Weight</h2>
+                            <ul>
+                                <li><input type="radio" id="weight-none" name="weight" value="" autocomplete="off">
+                                    <label for="weight-none">None</label><br></li>
+                                <li><input type="radio" id="weight-small" name="weight" value="small" autocomplete="off">
+                                    <label for="weight-small">Small</label><br></li>
+                                <li><input type="radio" id="weight-medium" name="weight" value="medium" autocomplete="off">
+                                    <label for="weight-medium">Medium</label><br></li>
+                                <li><input type="radio" id="weight-large" name="weight" value="large" autocomplete="off">
+                                    <label for="weight-large">Large</label><br></li>
+                            </ul>
+                        </div>
+                        <div class="height">
+                            <h3>Height</h3>
+                            <ul>
+                                <li><input type="radio" id="height-none" name="height" value="" autocomplete="off">
+                                    <label for="height-none">None</label><br></li>
+                                <li><input type="radio" id="height-short" name="height" value="short" autocomplete="off">
+                                <label for="height-short">Short</label><br></li>
+                                <li><input type="radio" id="height-medium" name="height" value="medium" autocomplete="off">
+                                    <label for="height-medium">Medium</label><br></li>
+                                <li><input type="radio" id="height-tall" name="height" value="tall" autocomplete="off">
+                                    <label for="height-tall">Tall</label><br></li>
+                            </ul>
+                        </div>
+                    </div>
+                
+                    <div class="searchbox">
+                        <input class="search-txt" type="text" name="" placeholder="Search for a pokémon" autocomplete="off">
+                        <button id="searchButton">Submit</button>
+                    </div>
+                </form>
             </div>
         </div>
-
-      </form>
     </div>
-        <!--   
+    <!--
         <div class="result-bar">
         
-        </div> -->
-
+        </div> 
+    -->  
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -218,5 +238,24 @@
         });
       });
     </script>
+
+    <script> 
+    function myFunction2() {
+        document.getElementById("myDropdown2").classList.toggle("show");
+    }
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn2')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content2");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>
+
   </body>
 </html>
