@@ -97,32 +97,13 @@
             </div>
         </div>
     </div>
-    <!--
-        <div class="result-bar">
-        
-        </div> 
-    -->  
-    <script>
-        $('ul.dropdown-content2').on('click', function(event){
-            var events = $._data(document, 'events') || {};
-            events = events.click || [];
-            for(var i = 0; i < events.length; i++) {
-                if(events[i].selector) {
+    
+    
+    <div class="result-bar">
+    
+    </div>
 
-                    //Check if the clicked element matches the event selector
-                    if($(event.target).is(events[i].selector)) {
-                        events[i].handler.call(event.target, event);
-                    }
-
-                    // Check if any of the clicked element parents matches the 
-                    // delegated event selector (Emulating propagation)
-                    $(event.target).parents(events[i].selector).each(function(){
-                        events[i].handler.call(this, event);
-                    });
-                }
-            }
-        });
-    </script>
+    
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
