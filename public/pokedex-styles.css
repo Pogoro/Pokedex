@@ -56,17 +56,30 @@ p {
 }
 .col-1{
     float: left;
-    width: 50%;
+    width: 33.33%;
 }
 .col-2{
     float: right;
-    width: 50%;
+    width: 33.33%;
+}
+.col-3
+{
+    float: right;
+    width: 33.33%;
+}
+.type-checkbox{
+    display: inline-block;
+    width: 15px;
+    vertical-align: top;
 }
 @media screen and (max-width: 600px) {
   .col-1 {
     width: 100%;
   }
   .col-2 {
+    width: 100%;
+  }
+  .col-3 {
     width: 100%;
   }
 }

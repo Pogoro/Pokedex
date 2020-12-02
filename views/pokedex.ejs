@@ -34,21 +34,29 @@
             <div class="advanced-search">
                 <form name="advancedsearch">
                     <div class="type-filters">
-                        <h1>Types and Weaknesses</h1>
                         <div class="col-1">
+                        <h1>Types and Weaknesses</h1>
                             <% types[0].forEach(type => { %>
-                            <div class="type-checkbox">
+                            <span class="type-checkbox">
                                 <input type="checkbox" id="<%="type-"+type%>" name="<%="type-"+type%>" value="<%=type%>" autocomplete="off">
                                 <label for="<%="type-"+type%>"><%= type.charAt(0).toUpperCase() + type.slice(1) %></label><br>
-                            </div>
+                            </span>
                             <%})%> 
                         </div>
                         <div class="col-2">
                             <% types[1].forEach(type => { %>
-                            <div class="type-checkbox">
+                            <span class="type-checkbox">
                                 <input type="checkbox" id="<%="type-"+type%>" name="<%="type-"+type%>" value="<%=type%>" autocomplete="off">
                                 <label for="<%="type-"+type%>"><%= type.charAt(0).toUpperCase() + type.slice(1) %></label><br>
-                            </div>
+                            </span>
+                            <%})%> 
+                        </div>
+                        <div class="col-3">
+                            <% types[2].forEach(type => { %>
+                            <span class="type-checkbox">
+                                <input type="checkbox" id="<%="type-"+type%>" name="<%="type-"+type%>" value="<%=type%>" autocomplete="off">
+                                <label for="<%="type-"+type%>"><%= type.charAt(0).toUpperCase() + type.slice(1) %></label><br>
+                            </span>
                             <%})%> 
                         </div>
                     </div>
