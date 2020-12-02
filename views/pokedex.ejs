@@ -25,17 +25,17 @@
     </div>
 
     <p class = "description">
-        Use advanced search to search by type, weakness, size, and more!
+        Use the advanced search option to search by type, weakness, size, and more!
     </p>
 
     <div class="dropdown2">
         <button onclick="myFunction2()" class="dropbtn2">Advanced Search</button>
         <div id="myDropdown2" class="dropdown-content2">
             <div class="advanced-search">
+            <h1>Types and Weaknesses</h1>
                 <form name="advancedsearch">
-                    <div class="type-filters">
-                        <div class="col-1">
-                        <h2>Types and Weaknesses</h2>
+                    <div class="type-filters">                    
+                        <div class="col-1">                        
                             <% types[0].forEach(type => { %>
                             <span class="type-checkbox">
                                 <input type="checkbox" id="<%="type-"+type%>" name="<%="type-"+type%>" value="<%=type%>" autocomplete="off">
@@ -62,7 +62,7 @@
                     </div>
                     <div class="weight-height">
                         <div class="weight">
-                            <h3>Weight</h3>
+                            <h2>Weight</h2>
                             <ul>
                                 <li><input type="radio" id="weight-none" name="weight" value="" autocomplete="off">
                                     <label for="weight-none">None</label><br></li>

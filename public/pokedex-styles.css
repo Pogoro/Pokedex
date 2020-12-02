@@ -7,9 +7,6 @@ body{
     margin-top: 20px;
     margin-bottom: 10px;
 }
-h2{
-    size: 20px;
-}
 #logo img { 
     width:35%;
     display: block;
@@ -19,18 +16,26 @@ h2{
 }
 
 h1 {
-    font-size: 20px;
+    font-size: 25px;
+    text-align: center;
+    margin: auto;
+    display: inline;
+    padding-bottom: 20px;
+}
+h2 {
+    font-size: 25px;
 }
 
 .dropdown2 {
     position: relative;
     margin: auto;
+    margin-bottom: 15px;
     text-align: center;
     width: 50%;
 }
 .dropbtn2 {
-    background: grey;
     color: black;
+    background-color: transparent;
     cursor: pointer;
     min-width: 160px;
     border-radius: 25px;
@@ -41,6 +46,9 @@ h1 {
     background-color: red;
 }
 .dropdown-content2 {
+    text-align: center;
+    background: lightgray;
+    border-radius: 25px;
     display: none;
     position: absolute;
     min-width: 160px;
@@ -51,22 +59,28 @@ h1 {
 }
 
 .type-filters{
-    display: inline-table;
+    display: flex;
+    flex-wrap: wrap;
 }
-
 .type-filters:after{
     clear: both;
 }
-
-.col-1, .col-2, .col-3{
+.col-1 {
+    flex-grow: 1;
     width: 33%;
-    float: left;
+    margin: auto;
 }
-
+.col-2 {
+    padding-left: 50px;
+    margin: auto;
+}
+.col-3 {
+    float: right;
+    margin: auto;
+}
 .type-checkbox{
     display: inline-block;
-    width: 15px;
-    vertical-align: top;
+    width: 150px;
 }
 @media screen and (max-width: 600px) {
   .col-1 {
@@ -80,22 +94,20 @@ h1 {
   }
 }
 
+.advanced-search {
+    
+}
+
 .weight-height {
     text-align: center;
     display: inline;
-}
-.weight h2 {
-    
+    padding-top: 20px;
 }
 .weight > ul {
     list-style-type: none;
 }
 .weight > ul > li {
     display: inline-block;
-}
-
-.height h3 {
-    
 }
 .height > ul {
     list-style-type: none;
@@ -108,6 +120,7 @@ h1 {
     text-align: center;
     margin: auto;
     margin-top: 20px;
+    margin-bottom: 20px;
     width: 600px;
 }
 .searchButton {
@@ -124,4 +137,8 @@ h1 {
 .search-txt {
     width: 50%;
     margin: auto;
+    border-radius: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid #222;
 }
