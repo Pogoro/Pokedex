@@ -38,12 +38,6 @@ h1 {
 .dropbtn2:hover, .dropbtn:focus {
     background-color: red;
 }
-.dropdown2 {
-    position: relative;
-    margin: auto;
-    width: 50%;
-    text-align: center;
-}
 .dropdown-content2 {
     display: none;
     position: absolute;

@@ -255,9 +255,9 @@
             }
         }
     }
-    $('myDropdown2').on('hide.bs.dropdown', function () {
-    return false;
-});
+    document.getElementById('myDropdown2').addEventListener('click', function (event) {
+        event.stopPropagation();
+    });
 </script>
 
   </body>
