@@ -1,11 +1,9 @@
 body{
     background-color: #FFFFCC;
+    font-family: "pkmn", sans-serif;
 }
-
-.advanced-search {
-    width: 500px;
-    margin: auto;
-    
+p {
+    text-align: center;
 }
 
 #logo img { 
@@ -16,20 +14,54 @@ body{
     margin-top: -10px;
 }
 
+.dropbtn2 {
+    background: transparent;
+    padding: 16px;
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+    min-width: 160px;
+    border-radius: 25px;
+}
+.dropbtn2:hover, .dropbtn:focus {
+    background-color: red;
+}
+.dropdown2 {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content2 {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    z-index: 1;
+}
+.show {
+    display: block;
+}
+.dropdown2:before {
+    content: "";
+    position: absolute;
+    right: 10px;
+    bottom: 8px;
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid black;
+}
+
 .type-filters{
     display: inline-table;
 }
-
 .col-1{
     float: left;
     width: 50%;
 }
-
 .col-2{
     float: right;
     width: 50%;
 }
-
 @media screen and (max-width: 600px) {
   .col-1 {
     width: 100%;
@@ -39,11 +71,37 @@ body{
   }
 }
 
+.weight-height {
+    text-align: center;
+    display: inline;
+}
+.weight h2 {
+    
+}
+.weight > ul {
+    list-style-type: none;
+}
+.weight > ul > li {
+    display: inline-block;
+}
+
+.height h3 {
+    
+}
+.height > ul {
+    list-style-type: none;
+}
+.height > ul > li {
+    display: inline-block;
+}
+
 .searchbox {
     text-align: center;
     margin: auto;
 }
-
 .searchButton {
-    margin: auto;
+    margin-left: 20px;
+}
+.search-txt {
+    min-width: 200px;
 }
