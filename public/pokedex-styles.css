@@ -29,17 +29,13 @@ h1 {
     width: 50%;
 }
 .dropbtn2 {
-    background: transparent;
+    background: grey;
     color: black;
     cursor: pointer;
     min-width: 160px;
     border-radius: 25px;
     padding-left: 10px;
     padding-right: 10px;
-<<<<<<< HEAD
-    
-=======
->>>>>>> 40fc595345f98782672469cbd4482fc87ac1b909
 }
 .dropbtn2:hover, .dropbtn:focus {
     background-color: red;
