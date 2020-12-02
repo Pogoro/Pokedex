@@ -29,7 +29,11 @@ body{
     float: right;
     width: 33.33%;
 }
-
+.col-3
+{
+    float: right;
+    width: 33.33%;
+}
 .type-checkbox{
     display: inline-block;
     width: 15px;
