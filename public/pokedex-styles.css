@@ -2,8 +2,10 @@ body{
     background-color: #FFFFCC;
     font-family: "pkmn", sans-serif;
 }
-p {
+.description {
     text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 #logo img { 
@@ -30,6 +32,12 @@ p {
 .dropbtn2:hover, .dropbtn:focus {
     background-color: red;
 }
+.dropdown2 {
+    position: relative;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
 .dropdown-content2 {
     display: none;
     position: absolute;
@@ -43,10 +51,16 @@ p {
 .type-filters{
     display: inline-table;
 }
-.col-1, .col-2, .col-3 {
-    float: left;
-    width: 33.33%;
+
+.type-filters:after{
+    clear: both;
 }
+
+.col-1, .col-2, .col-3{
+    width: 33%;
+    float: left;
+}
+
 .type-checkbox{
     display: inline-block;
     width: 15px;
@@ -91,6 +105,7 @@ p {
 .searchbox {
     text-align: center;
     margin: auto;
+    margin-top: 20px;
 }
 .searchButton {
     margin-left: 20px;
