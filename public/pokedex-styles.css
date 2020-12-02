@@ -38,3 +38,12 @@ body{
     width: 100%;
   }
 }
+
+.searchbox {
+    text-align: center;
+    margin: auto;
+}
+
+.searchButton {
+    margin: auto;
+}
