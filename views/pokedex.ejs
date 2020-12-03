@@ -202,7 +202,7 @@
           `) //<div class="moves">${pokemon.moves}</div>
       });
 
-      $("#searchButton").click(e => {
+      $(".searchButton").click(e => {
         e.preventDefault();
         let checkedTypes = [];
         // Read the value of every checked type checkbox
@@ -235,10 +235,18 @@
         filteredPokemon.forEach(pokemon => {
           $(".result-bar").append(`
             <div class="result">
-                <p>${pokemon.name}</p>
+                <div class="id">${pokemon.id}</div>
+                <div class="name">${pokemon.name}</div>
+                <div class="white-box">
+                    <div class="types"><p>Type(s):</p>${pokemon.types}</div>
+                    <div class="height"><p id = 'measure-title'>Height:</p>${pokemon.height / 10}<p id = 'measure'>m</p></div>
+                    <div class="weight"><p id = 'measure-title'>Weight:</p>${pokemon.weight / 10}<p id = 'measure'>kg</p></div>
+                </div>
+                <div class="image">${pokemon.image}</div>
+
             </div>
-          `)
-        });
+          `) //<div class="moves">${pokemon.moves}</div>
+      });
       });
     </script>
 
