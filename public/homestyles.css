@@ -12,8 +12,10 @@ body {
 
 .navigation {
     position: relative;
+    margin-left: auto;
+    margin-right: auto;
     letter-spacing: 1.5px;
-    top: 30px;
+    padding-top: 70px;
     font-size: 24px;
     font-family: "poke", sans-serif;
     background: transparent;
