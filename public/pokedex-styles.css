@@ -165,7 +165,8 @@ h2 {
     margin-bottom: 10px;
 }
 .result .types{
-    padding: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 .result .height{
     padding-left: 15px;
