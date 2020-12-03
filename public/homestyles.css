@@ -10,10 +10,10 @@ body {
 	background-color: #F7F7F7;
 }
 
-#navigation {
+.navigation {
     position: relative;
     letter-spacing: 1.5px;
-    top: 380px;
+    top: 30px;
     font-size: 24px;
     font-family: "poke", sans-serif;
     background: transparent;
@@ -47,5 +47,4 @@ body {
     margin-left: auto;
     margin-right: auto;
     padding-top: 10px;
-    padding-left: 10px;
 }
