@@ -167,11 +167,15 @@ h2 {
     
 }
 .result .height{
-    
+    font-weight: nomal;
 }
 .result .weight{
-    
+    font-weight: nomal;
 }
+.result .height p, .result .weight p{
+    display: inline;
+}
+
 .result .image{
     
 }
