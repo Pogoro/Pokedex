@@ -39,14 +39,9 @@ cache.downloadCache().then(res => {
 });
 */
 function filterByType(pokemon, typeFilter){
-<<<<<<< HEAD
     let types = ['bug', 'dark', 'dragon', 'electric', 'fairy', 'fighting', 
           'fire', 'flying', 'ghost', 'grass', 'ground', 'ice', 
           'normal', 'poison', 'psychic', 'rock', 'steel', 'water'];
-=======
-    let types = ['normal', 'water', 'fire', 'grass', 'electric', 'fighting', 'flying', 'rock', 'bug',
-                 'poison', 'steel', 'ground', 'ice', 'psychic', 'ghost', 'fairy', 'dragon', 'dark'];
->>>>>>> c82795d667ac4bb066216b0e1a3dfd1966700b8f
     let check = (pokeTypes) => typeFilter.map(item => item.toLowerCase()).every(type => {
         return pokeTypes.includes(type);
     });

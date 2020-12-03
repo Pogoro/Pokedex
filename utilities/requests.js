@@ -3,7 +3,7 @@ const rax = require('retry-axios');
 /*
     This is a utility module for requests and other API calls.
 */
-function Pokemon(id, name, types, weight, height, image, moves) {
+function Pokemon(id, name, type, weight, height, image, moves) {
     this.id = id
     this.name = name
     this.type = type
@@ -46,7 +46,7 @@ function getPage(startNum=1, endNum=25){
                     output.push(new Pokemon(
                         result.data.id,
                         result.data.name,
-                        result.data.type,
+                        result.data.types,
                         result.data.weight,
                         result.data.height,
                         result.data.sprites.front_default,
