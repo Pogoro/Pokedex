@@ -1,5 +1,10 @@
 body{
-    background-color: #FFFFCC;
+    background: url(images/pokemon_day.png) no-repeat;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-color: #F7F7F7;
     font-family: "pkmn", sans-serif;
 }
 .description {
@@ -145,14 +150,15 @@ h2 {
 
 .result-bar{
     width: 50%;
-    margin: auto
+    margin: auto;
+    margin-bottom: 20px;
 }
 .result{
 
 }
 .result .id{
     display: inline;
-    float: right;
+    float: left;
 }
 .result .name{
     text-align: center;
