@@ -146,7 +146,7 @@
       */
       function filterByType(pokemon, typeFilter){
           let types = ['normal', 'water', 'fire', 'grass', 'electric', 'fighting', 'flying', 'rock', 'bug',
-                      'poison', 'steel', 'ground', 'ice', 'psychic', 'ghost', 'fairy'];
+                      'poison', 'steel', 'ground', 'ice', 'psychic', 'ghost', 'fairy', 'dragon', 'dark'];
           let check = (pokeTypes) => typeFilter.map(item => item.toLowerCase()).every(type => {
               return pokeTypes.includes(type);
           });
@@ -190,9 +190,11 @@
             <div class="result">
                 <div class="id">${pokemon.id}</div>
                 <div class="name">${pokemon.name}</div>
-                <div class="type">${pokemon.type}</div>
-                <div class="height">${pokemon.height / 10}<p>m</p></div>
-                <div class="weight">${pokemon.weight / 10}<p>kg</p></div>
+                <div class="white-box"
+                    <div class="types"><p>Type(s):</p>${pokemon.types}</div>
+                    <div class="height"><p id = 'measure-title'>Height:</p>${pokemon.height / 10}<p id = 'measure'>m</p></div>
+                    <div class="weight"><p id = 'measure-title'>Weight:</p>${pokemon.weight / 10}<p id = 'measure'>kg</p></div>
+                </div>
                 <div class="image">${pokemon.image}</div>
 
             </div>

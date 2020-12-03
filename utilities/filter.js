@@ -40,7 +40,7 @@ cache.downloadCache().then(res => {
 */
 function filterByType(pokemon, typeFilter){
     let types = ['normal', 'water', 'fire', 'grass', 'electric', 'fighting', 'flying', 'rock', 'bug',
-                 'poison', 'steel', 'ground', 'ice', 'psychic', 'ghost', 'fairy'];
+                 'poison', 'steel', 'ground', 'ice', 'psychic', 'ghost', 'fairy', 'dragon', 'dark'];
     let check = (pokeTypes) => typeFilter.map(item => item.toLowerCase()).every(type => {
         return pokeTypes.includes(type);
     });

@@ -38,7 +38,7 @@ app.get('/pokedex', function(req, res){
         pokemon: JSON.stringify(pokemonList),
         types: types = [['normal', 'water', 'fire', 'grass', 'electric', 'bug'],
                         [ 'poison', 'steel', 'ground', 'ice', 'psychic', 'ghost'],
-                        ['fairy', 'fighting', 'flying', 'rock', 'dragon']],
+                        ['fairy', 'fighting', 'flying', 'rock', 'dragon', 'dark']],
         util_filter: filter // Passes filter functions from utilities/filter.js
     })
     /* production code:

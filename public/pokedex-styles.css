@@ -162,18 +162,32 @@ h2 {
 }
 .result .name{
     text-align: center;
+    margin-bottom: 10px;
 }
-.result .type{
-    
+.result > .types{
+    float: right;
+    position: static;
+    padding: 10px;
 }
-.result .height{
-    font-weight: nomal;
+.result .height, .result .weight{
+    float: right;
+    margin-bottom: 20px;
+    padding: 10px;
 }
-.result .weight{
-    font-weight: nomal;
-}
-.result .height p, .result .weight p{
+#measure{
     display: inline;
+    margin-right: 15px;
+}
+#measure-title{
+    display: inline;
+    margin-right: 5px;
+}
+.white-box{
+    background: white;
+    border-radius: 25px;
+    border: 2px solid black;
+    width: 50%;
+    float: right;
 }
 
 .result .image{
