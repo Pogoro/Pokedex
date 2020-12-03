@@ -142,3 +142,33 @@ h2 {
     padding-right: 10px;
     border: 1px solid #222;
 }
+
+.result-bar{
+    width: 50%;
+    margin: auto
+}
+.result{
+
+}
+.result .id{
+    display: inline;
+    float: right;
+}
+.result .name{
+    text-align: center;
+}
+.result .type{
+    
+}
+.result .height{
+    
+}
+.result .weight{
+    
+}
+.result .image{
+    
+}
+.result .moves{
+    
+}
