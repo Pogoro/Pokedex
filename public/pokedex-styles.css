@@ -41,7 +41,8 @@ h2 {
 }
 .dropbtn2 {
     color: black;
-    background-color: transparent;
+    background-color: red;
+    border: 1px solid #222;
     cursor: pointer;
     min-width: 160px;
     border-radius: 25px;
@@ -49,7 +50,7 @@ h2 {
     padding-right: 10px;
 }
 .dropbtn2:hover, .dropbtn:focus {
-    background-color: red;
+    background-color: #FF6767;
 }
 .dropdown-content2 {
     text-align: center;
@@ -128,14 +129,16 @@ h2 {
 }
 .searchButton {
     border-radius: 25px;
-    background: transparent;
+    border: 1px solid #222;
+    background: red;
+    cursor: pointer;
     color: black;
     padding-left: 10px;
     padding-right: 10px;
     margin-top: 10px;
 }
 .searchButton:hover {
-    background: red;
+    background: #FF6767;
 }
 .search-txt {
     width: 50%;
@@ -165,6 +168,7 @@ h2 {
 .result .name{
     text-align: center;
     margin-bottom: 10px;
+    text-transform: capitalize;
 }
 .result .types{
     text-align: center;
