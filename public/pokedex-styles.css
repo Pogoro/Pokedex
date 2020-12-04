@@ -208,3 +208,9 @@ h2 {
     width: 40%;
     margin-top: -25px;
 }
+.result .name{
+    text-transform: capitalize;
+}
+.result .types div{
+    text-transform: capitalize;
+}

@@ -5,11 +5,12 @@ const rax = require('retry-axios');
 var fetch = require('node-fetch');
 var nodemailer = require('nodemailer');
 //Modules - enable cache in production
-//var cache = require('./utilities/cache.js');
+var cache = require('./utilities/cache.js');
 var requests = require('./utilities/requests.js');
 var filter = require('./utilities/filter.js');
 //Config
 var config = require('./config.json');
+const { ejs } = require('ejs');
 //create express object, call express
 var app = express();
 //get port info
@@ -23,7 +24,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Use in production
-//cache.updateCache();
+cache.updateCache();
 
 // Page routes
 app.get('/', function(req, res){
@@ -31,26 +32,20 @@ app.get('/', function(req, res){
 });
 app.get('/pokedex', function(req, res){
     // BELOW IS FOR TESTING - Take this out in production
-    const fs = require('fs');
-    let data = fs.readFileSync('./utilities/_pokemon_localtest.json');
-    let pokemonList = JSON.parse(data);
-    res.render('pokedex', {
-        pokemon: JSON.stringify(pokemonList),
-        types: types = [['bug', 'dark', 'dragon', 'electric', 'fairy', 'fighting'],
-                        [ 'fire', 'flying', 'ghost', 'grass', 'ground', 'ice'],
-                        ['normal', 'poison', 'psychic', 'rock', 'steel', 'water']],
-        util_filter: filter // Passes filter functions from utilities/filter.js
-    })
-    /* production code:
-    var pokemonList = [];
+    // const fs = require('fs');
+    // let data = fs.readFileSync('./utilities/_pokemon_localtest.json');
+    // let pokemonList = JSON.parse(data);
+    let pokemonList = [];
     cache.downloadCache().then(poke => {
         pokemonList = poke;
         res.render('pokedex', {
-            pokemon: pokemonList,
+            pokemon: JSON.stringify(pokemonList),
+            types: types = [['bug', 'dark', 'dragon', 'electric', 'fairy', 'fighting'],
+                            [ 'fire', 'flying', 'ghost', 'grass', 'ground', 'ice'],
+                            ['normal', 'poison', 'psychic', 'rock', 'steel', 'water']],
             util_filter: filter // Passes filter functions from utilities/filter.js
         })
     });
-    */
 });
 app.get('/random', function(req, res){
     res.render('random');
