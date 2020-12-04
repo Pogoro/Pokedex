@@ -54,6 +54,7 @@ h2 {
     text-align: center;
     background: lightgray;
     border-radius: 25px;
+    border: 1px solid #222;
     display: none;
     position: absolute;
     min-width: 160px;
@@ -97,10 +98,6 @@ h2 {
   .col-3 {
     width: 100%;
   }
-}
-
-.advanced-search {
-    
 }
 
 .weight-height {
@@ -155,16 +152,22 @@ h2 {
 }
 .result{
     margin: 20px;
+    background: #FFFFCC;
+    border-radius: 20px;
+    border: 1px solid #222;
 }
-.result .id{
-    display: inline;
+
+.result .id {
     float: left;
+    padding-left: 25px;
 }
 .result .name{
     text-align: center;
     margin-bottom: 10px;
 }
 .result .types{
+    text-align: center;
+    margin-top: 10px;
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -186,16 +189,16 @@ h2 {
     margin-right: 5px;
 }
 .white-box{
+    vertical-align: middle;
     background: white;
     border-radius: 25px;
     border: 2px solid black;
-    width: 50%;
+    width: 60%;
     float: right;
+    margin-top: 50px;
 }
 
 .result .image{
-    
-}
-.result .moves{
-    
+    width: 40%;
+    margin-top: -25px;
 }
