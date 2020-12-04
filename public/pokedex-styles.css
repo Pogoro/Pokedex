@@ -174,11 +174,14 @@ h2 {
 .result .height{
     padding-left: 15px;
     padding-right: 5px;
+    padding-bottom: 5px;
     float: left;
 
 }
 .result .weight{
     padding-right: 15px;
+    padding-bottom: 5px;
+    white-space: nowrap;
 }
 #measure{
     display: inline;
@@ -193,9 +196,10 @@ h2 {
     background: white;
     border-radius: 25px;
     border: 2px solid black;
-    width: 60%;
+    width: 50%;
     float: right;
     margin-top: 50px;
+    margin-right: 10px;
 }
 
 .result .image{
