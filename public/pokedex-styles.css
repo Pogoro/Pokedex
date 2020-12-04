@@ -24,6 +24,7 @@ h1 {
     font-size: 25px;
     text-align: center;
     margin: auto;
+    padding-top: 15px;
     display: inline;
     padding-bottom: 20px;
 }
@@ -190,6 +191,7 @@ h2 {
 }
 .white-box{
     vertical-align: middle;
+    text-align: center;
     background: white;
     border-radius: 25px;
     border: 2px solid black;
