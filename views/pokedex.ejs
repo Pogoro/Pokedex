@@ -97,7 +97,9 @@
             </div>
         </div>
     </div>
-    
+    <div class="load-wrapper">
+        <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+    </div>
     
     <div class="result-bar">
         
@@ -186,6 +188,9 @@
     </script>
     <!-- Clientside scripts -->
     <script>
+        $(document).ready(function(){
+            $(".load-wrapper").remove();
+        });
       let pokemonList = <%- pokemon %>;
       pokemonList.sort((poke_a, poke_b) => {
         return poke_a.id - poke_b.id;
