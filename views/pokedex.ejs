@@ -187,19 +187,26 @@
     <script>
       let pokemonList = <%- pokemon %>;
       pokemonList.forEach(pokemon => {
-          $(".result-bar").append(`
-            <div class="result">
-                <div class="id">${pokemon.id}</div>
-                <div class="name">${pokemon.name}</div>
-                <div class="white-box">
-                    <div class="types"><p>Type(s):</p>${pokemon.types}</div>
-                    <div class="height"><p id = 'measure-title'>Height:</p>${pokemon.height / 10}<p id = 'measure'>m</p></div>
-                    <div class="weight"><p id = 'measure-title'>Weight:</p>${pokemon.weight / 10}<p id = 'measure'>kg</p></div>
-                </div>
-                <img src="${pokemon.image}" class="image"></img>
-
+        let types = [];
+        pokemon.type.forEach(index => {
+            types.push(index.type.name);
+        });
+        let types_html = '';
+        types.forEach(type => {
+            types_html = types_html.concat(`<div class="${type}">${type}</div>`);
+        })
+        let resultTemplate = $($.parseHTML(
+        `<div class="result">
+            <div class="id">${pokemon.id}</div>
+            <div class="name">${pokemon.name}</div>
+            <div class="white-box">
+                <div class="types"><p>Type(s):</p>${types_html}</div>
+                <div class="height"><p id = 'measure-title'>Height:</p>${pokemon.height / 10}<p id = 'measure'>m</p></div>
+                <div class="weight"><p id = 'measure-title'>Weight:</p>${pokemon.weight / 10}<p id = 'measure'>kg</p></div>
             </div>
-          `) //<div class="moves">${pokemon.moves}</div>
+            <img src="${pokemon.image}" class="image"></img>
+        </div>`));
+        resultTemplate.appendTo($(".result-bar"));
       });
 
       $(".searchButton").click(e => {
@@ -233,19 +240,26 @@
           height: filteredHeight
         });
         filteredPokemon.forEach(pokemon => {
-          $(".result-bar").append(`
-            <div class="result">
+            let types = [];
+            pokemon.type.forEach(index => {
+                types.push(index.type.name);
+            });
+            let types_html = '';
+            types.forEach(type => {
+                types_html = types_html.concat(`<div class="${type}">${type}</div>`);
+            })
+            let resultTemplate = $($.parseHTML(
+            `<div class="result">
                 <div class="id">${pokemon.id}</div>
                 <div class="name">${pokemon.name}</div>
                 <div class="white-box">
-                    <div class="types"><p>Type(s):</p>${pokemon.types}</div>
+                    <div class="types"><p>Type(s):</p>${types_html}</div>
                     <div class="height"><p id = 'measure-title'>Height:</p>${pokemon.height / 10}<p id = 'measure'>m</p></div>
                     <div class="weight"><p id = 'measure-title'>Weight:</p>${pokemon.weight / 10}<p id = 'measure'>kg</p></div>
                 </div>
                 <img src="${pokemon.image}" class="image"></img>
-
-            </div>
-          `) //<div class="moves">${pokemon.moves}</div>
+            </div>`));
+            resultTemplate.appendTo($(".result-bar"));
       });
       });
     </script>
