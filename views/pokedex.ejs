@@ -186,6 +186,9 @@
     <!-- Clientside scripts -->
     <script>
       let pokemonList = <%- pokemon %>;
+      pokemonList.sort((poke_a, poke_b) => {
+        return poke_a.id - poke_b.id;
+      });
       pokemonList.forEach(pokemon => {
         let types = [];
         pokemon.type.forEach(index => {
